@@ -1,3 +1,13 @@
 rootProject.name = 'spring-cloud-demo'
 include 'cloud-eureka-server'
+include 'cloud-global'
+include 'biz-notify'
+
+// 支付相关
+include ':biz-pay-server'
+project(':biz-pay-server').projectDir = new File('pay/biz-pay-server')
+include ':biz-pay-common'
+project(':biz-pay-common').projectDir = new File('pay/biz-pay-common')
+include ':biz-pay-client'
+project(':biz-pay-client').projectDir = new File('pay/biz-pay-client')
 

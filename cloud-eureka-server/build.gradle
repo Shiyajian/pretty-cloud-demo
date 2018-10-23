@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '2.0.3.RELEASE'
+        springBootVersion = '2.0.6.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -11,13 +11,14 @@ buildscript {
 }
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '2.0.3.RELEASE'
+    id 'org.springframework.boot' version '2.0.6.RELEASE'
 }
 apply plugin: 'io.spring.dependency-management'
 
 
 group 'com.shiyajian'
 version '1.0-SNAPSHOT'
+description '服务注册中心'
 
 sourceCompatibility = 1.8
 
@@ -33,13 +34,10 @@ dependencyManagement {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
     compile 'org.springframework.boot:spring-boot-starter-undertow'
     compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-server') {
         exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
     }
-    compile 'org.springframework.boot:spring-boot-starter-undertow'
-    compileOnly('org.springframework.boot:spring-boot-devtools')
 }
 bootJar {
     baseName = 'eureka-server'
