@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+}
+
+group 'com.shiyajian'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+
+dependencies {
+
+    compile project(':cloud-global')
+    compile project(':biz-pay-common')
+
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-openfeign-core', version: '2.0.1.RELEASE'
+    compile group: 'org.springframework', name: 'spring-web', version: '5.1.1.RELEASE'
+
+}

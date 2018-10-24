@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
  * @author shiyajian
  * create: 2018-10-23
  */
-public final class NetUtils {
+public final class NetUtil {
 
     private static final String UNKNOWN = "unknown";
     /**
