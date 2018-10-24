@@ -6,10 +6,8 @@ include 'biz-notify'
 // 支付相关
 include ':biz-pay-server'
 project(':biz-pay-server').projectDir = new File('pay/biz-pay-server')
-include ':biz-pay-common'
-project(':biz-pay-common').projectDir = new File('pay/biz-pay-common')
 include ':biz-pay-client'
 project(':biz-pay-client').projectDir = new File('pay/biz-pay-client')
-include ':biz-pay-client-api'
-project(':biz-pay-client-api').projectDir = new File('pay/biz-pay-client-api')
+include ':biz-pay-api'
+project(':biz-pay-api').projectDir = new File('pay/biz-pay-api')
 
