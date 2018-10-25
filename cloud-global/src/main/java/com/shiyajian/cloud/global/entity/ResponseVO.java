@@ -1,9 +1,6 @@
 package com.shiyajian.cloud.global.entity;
 
-import com.shiyajian.cloud.global.enums.ServiceStateEnum;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  * 统一返回实体
@@ -12,8 +9,6 @@ import lombok.NoArgsConstructor;
  * create: 2018-10-24
  */
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class ResponseVO<T> {
 
     /**
@@ -27,6 +22,11 @@ public class ResponseVO<T> {
     private String msg;
 
     /**
+     * 是否成功
+     */
+    private Boolean succeeded;
+
+    /**
      * 如果是分页数据，表示总数据条数；
      * 如果不是分页，则为0
      */
@@ -37,5 +37,14 @@ public class ResponseVO<T> {
      */
     private T data;
 
+    public ResponseVO() {
+    }
 
+    public ResponseVO(Integer code, String msg, Boolean succeeded, Long total, T data) {
+        this.code = code;
+        this.msg = msg;
+        this.succeeded = succeeded;
+        this.total = total;
+        this.data = data;
+    }
 }

@@ -6,3 +6,11 @@
         - api: feign接口以及实体的包
     - server: 服务提供方
         - api: 实现接口（为了保证方法名和入参一致）
+- 2018.10.25 通过五层架构模拟业务调用，测试feign是否成功，
+    - controller          controller可以直接调用serviceManager或者service
+        - serviceManager  组装本地service，和外部服务提供的client返回的数据
+        - service         组装本地数据
+            - daoManager  拼接mapper，dao，将多条sql拼接成一个业务逻辑
+            - dao         更多的是手写的复杂操作
+            - mapper      代码生成器生成的单表curd
+    - client              暴露给外包的服务

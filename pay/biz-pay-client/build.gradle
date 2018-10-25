@@ -16,8 +16,7 @@ repositories {
 
 dependencies {
 
-    compile project(':biz-pay-client-api')
-// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-configuration-processor
+    compile project(':biz-pay-api')
     compile group: 'org.springframework.boot', name: 'spring-boot-configuration-processor', version: '2.0.6.RELEASE'
     compile group: 'org.springframework.boot', name: 'spring-boot-autoconfigure', version: '2.0.6.RELEASE'
 }

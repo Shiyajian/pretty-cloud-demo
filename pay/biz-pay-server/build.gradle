@@ -34,7 +34,9 @@ dependencyManagement {
 }
 
 dependencies {
-    compile project(':biz-pay-client-api')
+    compile project(':biz-pay-api')
+    
+    compile project(':biz-order-client')
     testCompile group: 'junit', name: 'junit', version: '4.12'
     testCompile('org.springframework.boot:spring-boot-starter-test')
 
@@ -45,6 +47,7 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-undertow'
     compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-hystrix', version: '1.4.6.RELEASE'
     compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-eureka-client', version: '2.0.0.RELEASE'
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-feign', version: '1.4.6.RELEASE'
 
 }
 bootJar {

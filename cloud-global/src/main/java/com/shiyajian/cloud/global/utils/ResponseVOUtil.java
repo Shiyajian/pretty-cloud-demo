@@ -14,6 +14,7 @@ public class ResponseVOUtil {
     public static ResponseVO success() {
         return new ResponseVO(ServiceStateEnum.SUCCESS.getCode(),
                 ServiceStateEnum.SUCCESS.getMsg(),
+                true,
                 0L,
                 null);
     }
@@ -23,11 +24,13 @@ public class ResponseVOUtil {
             PageDTO pageDTO = (PageDTO) data;
             return new ResponseVO(ServiceStateEnum.SUCCESS.getCode(),
                     ServiceStateEnum.SUCCESS.getMsg(),
+                    true,
                     pageDTO.getTotal(),
                     pageDTO.getData());
         }
         return new ResponseVO(ServiceStateEnum.SUCCESS.getCode(),
                 ServiceStateEnum.SUCCESS.getMsg(),
+                true,
                 0L,
                 data);
     }
@@ -35,6 +38,7 @@ public class ResponseVOUtil {
     public static ResponseVO failed(ServiceStateEnum stateEnum) {
         return new ResponseVO(stateEnum.getCode(),
                 stateEnum.getMsg(),
+                false,
                 0L,
                 null);
     }

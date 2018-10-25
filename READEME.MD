@@ -10,3 +10,4 @@
   
  ## 特别说明
  - 去除内置tomcat,使用undertow
+ - gradle项目，如果Lombok无法使用，可以参考：https://blog.csdn.net/Box_clf/article/details/80992121

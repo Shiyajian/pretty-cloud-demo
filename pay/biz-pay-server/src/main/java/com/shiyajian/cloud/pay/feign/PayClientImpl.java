@@ -3,6 +3,8 @@ package com.shiyajian.cloud.pay.feign;
 import com.shiyajian.cloud.global.entity.ResponseVO;
 import com.shiyajian.cloud.pay.feign.entity.param.ScanPayParam;
 import com.shiyajian.cloud.pay.feign.entity.vo.ScanPayVO;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * create: 2018-10-24
  */
 @RestController
+@RequestMapping("pay")
 public class PayClientImpl implements PayClient {
 
 

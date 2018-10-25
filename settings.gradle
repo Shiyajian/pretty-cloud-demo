@@ -11,3 +11,10 @@ project(':biz-pay-client').projectDir = new File('pay/biz-pay-client')
 include ':biz-pay-api'
 project(':biz-pay-api').projectDir = new File('pay/biz-pay-api')
 
+// 订单相关
+include ':biz-order-server'
+project(':biz-order-server').projectDir = new File('order/biz-order-server')
+include ':biz-order-client'
+project(':biz-order-client').projectDir = new File('order/biz-order-client')
+include ':biz-order-api'
+project(':biz-order-api').projectDir = new File('order/biz-order-api')
