@@ -14,3 +14,4 @@
             - dao         更多的是手写的复杂操作
             - mapper      代码生成器生成的单表curd
     - client              暴露给外包的服务
+- 2018.10.26 增加了服务的httpMessageConverter,使用Jackson，曾经研究过，这个是用的最多的，也是比较方便的
