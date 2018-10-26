@@ -1,4 +1,4 @@
-package com.shiyajian.cloud.pay;
+package com.shiyajian.cloud.order;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.cloud.client.SpringCloudApplication;

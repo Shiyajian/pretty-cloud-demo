@@ -7,13 +7,15 @@ import com.shiyajian.cloud.pay.service.manager.PayServiceManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /** 支付控制类
  * @author shiyajian
  * create: 2018-10-25
  */
-@RestController("/pay")
+@RestController
+@RequestMapping("pay")
 public class PayController {
 
 

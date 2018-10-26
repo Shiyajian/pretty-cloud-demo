@@ -16,3 +16,11 @@ eureka:
 spring:
   application:
     name: pay-server
+  http:
+    encoding:
+      enabled: true
+      force-request: true
+      force-response: true
+      charset: UTF-8
+    converters:
+      preferred-json-mapper: jackson

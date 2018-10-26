@@ -4,10 +4,7 @@ import com.shiyajian.cloud.global.entity.ResponseVO;
 import com.shiyajian.cloud.global.utils.ResponseVOUtil;
 import com.shiyajian.cloud.order.feign.entity.vo.OrderInfoVO;
 import com.shiyajian.cloud.order.feign.entity.vo.ProductVO;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -22,12 +19,13 @@ import java.util.List;
  * create: 2018-10-24
  */
 @RestController
-@RequestMapping("/client")
+//@RequestMapping("client")
 public class OrderClientImpl implements OrderClient {
 
 
     @Override
-    public ResponseVO<OrderInfoVO> getOrderInfoByNo( String orderNo) {
+    @GetMapping("/order/{orderNo}")
+    public ResponseVO<OrderInfoVO> getOrderInfoByNo(@PathVariable String orderNo) {
         OrderInfoVO orderInfoVO = new OrderInfoVO();
         orderInfoVO.setOrderNo("123456");
         orderInfoVO.setUserId("13304094634");

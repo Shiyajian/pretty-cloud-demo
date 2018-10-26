@@ -13,10 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
  * create: 2018-10-24
  */
 @FeignClient(value = "biz-order-server")
-@RequestMapping("client")
 public interface OrderClient {
 
 
-    @GetMapping("/order")
-    ResponseVO<OrderInfoVO> getOrderInfoByNo(String orderNo);
+    @GetMapping("/order/{orderNo}")
+    ResponseVO<OrderInfoVO> getOrderInfoByNo(@PathVariable(value = "orderNo") String orderNo);
 }
