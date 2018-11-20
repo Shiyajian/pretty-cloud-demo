@@ -1,0 +1,16 @@
+version '1.0-SNAPSHOT'
+description '订单服务共用类'
+
+jar{
+    enabled = false
+}
+
+dependencies {
+
+    implementation(
+            "org.springframework.cloud:spring-cloud-openfeign-core",
+            "org.springframework:spring-web"
+    )
+
+}
+

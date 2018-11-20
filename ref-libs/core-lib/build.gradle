@@ -1,0 +1,6 @@
+version '1.0-SNAPSHOT'
+description '核心依赖包'
+
+jar{
+    enabled = false
+}

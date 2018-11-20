@@ -1,20 +1,53 @@
-rootProject.name = 'spring-cloud-demo'
-include 'cloud-eureka-server'
-include 'cloud-global'
-include 'biz-notify'
+rootProject.name = 'cobweb'
 
-// 支付相关
-include ':biz-pay-server'
-project(':biz-pay-server').projectDir = new File('pay/biz-pay-server')
-include ':biz-pay-client'
-project(':biz-pay-client').projectDir = new File('pay/biz-pay-client')
-include ':biz-pay-api'
-project(':biz-pay-api').projectDir = new File('pay/biz-pay-api')
 
-// 订单相关
+// spring cloud 相关
+include ':eureka-server'
+project(':eureka-server').projectDir = new File('sys-server/eureka-server')
+
+// 核心业务相关
+
+// - 用户中心（包括账号、组织管理、权限管理）
+//include ':biz-pay-server'
+//project(':biz-pay-server').projectDir = new File('pay/biz-pay-server')
+//include ':biz-pay-client'
+//project(':biz-pay-client').projectDir = new File('pay/biz-pay-client')
+//include ':biz-pay-api'
+//project(':biz-pay-api').projectDir = new File('pay/biz-pay-api')
+
+// - 订单中心
 include ':biz-order-server'
-project(':biz-order-server').projectDir = new File('order/biz-order-server')
+project(':biz-order-server').projectDir = new File('biz-server/order/biz-order-server')
 include ':biz-order-client'
-project(':biz-order-client').projectDir = new File('order/biz-order-client')
+project(':biz-order-client').projectDir = new File('biz-server/order/biz-order-client')
 include ':biz-order-api'
-project(':biz-order-api').projectDir = new File('order/biz-order-api')
+project(':biz-order-api').projectDir = new File('biz-server/order/biz-order-api')
+
+// - 结算
+include ':biz-pay-server'
+project(':biz-pay-server').projectDir = new File('biz-server/pay/biz-pay-server')
+include ':biz-pay-client'
+project(':biz-pay-client').projectDir = new File('biz-server/pay/biz-pay-client')
+include ':biz-pay-api'
+project(':biz-pay-api').projectDir = new File('biz-server/pay/biz-pay-api')
+
+// 辅助业务相关
+include ':notify-server'
+project(':notify-server').projectDir = new File('support-server/notify-server')
+include ':file-server'
+project(':file-server').projectDir = new File('support-server/file-server')
+
+// 自研工具类/依赖，最后打成jar
+include ':core-lib'
+project(':core-lib').projectDir = new File('ref-libs/core-lib')
+
+
+//// 支付相关
+//include ':biz-pay-server'
+//project(':biz-pay-server').projectDir = new File('pay/biz-pay-server')
+//include ':biz-pay-client'
+//project(':biz-pay-client').projectDir = new File('pay/biz-pay-client')
+//include ':biz-pay-api'
+//project(':biz-pay-api').projectDir = new File('pay/biz-pay-api')
+
+

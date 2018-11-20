@@ -6,7 +6,7 @@
  - 构建工具： Gradle
  - JDK： Oracle JDK8
  ## 项目模块
- - cloud-eureka-server: 注册中心
+ - eureka-server: 注册中心
   
  ## 特别说明
  - 去除内置tomcat,使用undertow

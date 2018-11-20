@@ -1,0 +1,16 @@
+version '1.0-SNAPSHOT'
+description '订单服务api类'
+
+jar{
+    enabled = false
+}
+
+dependencies {
+
+    compile project(':biz-order-api')
+    implementation(
+            "org.springframework.boot:spring-boot-configuration-processor",
+            "org.springframework.boot:spring-boot-autoconfigure"
+    )
+
+}

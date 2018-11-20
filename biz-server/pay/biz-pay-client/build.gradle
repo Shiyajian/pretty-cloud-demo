@@ -1,0 +1,16 @@
+version '1.0-SNAPSHOT'
+description '支付服务其他服务调用类'
+
+jar{
+    enabled = false
+}
+
+dependencies {
+
+    compile project(':biz-pay-api')
+    implementation(
+            "org.springframework.boot:spring-boot-configuration-processor",
+            "org.springframework.boot:spring-boot-autoconfigure"
+    )
+
+}
