@@ -2,13 +2,12 @@ package com.shiyajian.cloud.pay.controller;
 
 import com.shiyajian.cloud.global.entity.ResponseVO;
 import com.shiyajian.cloud.global.utils.ResponseVOUtil;
+import com.shiyajian.cloud.pay.pojo.AliPayRequest;
+import com.shiyajian.cloud.pay.pojo.WechatPayRequest;
 import com.shiyajian.cloud.pay.pojo.vo.PayInfoVO;
 import com.shiyajian.cloud.pay.service.manager.PayServiceManager;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /** 支付控制类
  * @author shiyajian
@@ -21,6 +20,20 @@ public class PayController {
 
     @Autowired
     private PayServiceManager payServiceManager;
+
+    @PostMapping("ali")
+    public void aliPay(@RequestBody AliPayRequest request){
+
+    }
+
+    @PostMapping("wechat_native")
+    public void wechatNativePay(@RequestBody WechatPayRequest request){
+
+    }
+    @PostMapping("wechat_js")
+    public void wechatJsPay(@RequestBody WechatPayRequest request){
+
+    }
 
     /** 支付订单
      * @param orderNo 订单编号

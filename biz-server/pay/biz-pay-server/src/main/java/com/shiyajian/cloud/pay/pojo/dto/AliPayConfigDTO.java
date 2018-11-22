@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 /**
- *
  * @author shiyajian
  * create: 2018-11-05
  */
@@ -55,4 +54,3 @@ public class AliPayConfigDTO {
 
 }
 
-}

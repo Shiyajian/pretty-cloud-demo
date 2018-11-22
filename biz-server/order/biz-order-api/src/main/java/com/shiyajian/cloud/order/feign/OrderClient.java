@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 /**
  * @author shiyajian
  * create: 2018-10-24
@@ -17,5 +19,5 @@ public interface OrderClient {
 
 
     @GetMapping("/order/{orderNo}")
-    ResponseVO<OrderInfoVO> getOrderInfoByNo(@PathVariable(value = "orderNo") String orderNo);
+    ResponseVO<List<OrderInfoVO>> getOrderInfoByNo(@PathVariable(value = "orderNo") String orderNo);
 }

@@ -9,8 +9,7 @@ dependencies {
 
     compile project(':biz-order-api')
     implementation(
-            "org.springframework.boot:spring-boot-configuration-processor",
-            "org.springframework.boot:spring-boot-autoconfigure"
+            "org.springframework.cloud:spring-cloud-openfeign-core"
     )
 
 }

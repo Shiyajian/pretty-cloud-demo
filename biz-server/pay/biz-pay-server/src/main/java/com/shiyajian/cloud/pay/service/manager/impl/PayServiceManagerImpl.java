@@ -11,6 +11,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 /**
  * @author shiyajian
  * create: 2018-10-25
@@ -29,7 +31,7 @@ public class PayServiceManagerImpl implements PayServiceManager {
     public PayInfoVO payOrder(String orderNo) {
 
         // 查询订单信息
-        ResponseVO<OrderInfoVO> orderInfoResponse = orderClient.getOrderInfoByNo(orderNo);
+        ResponseVO<List<OrderInfoVO>> orderInfoResponse = orderClient.getOrderInfoByNo(orderNo);
         if(!orderInfoResponse.getSucceeded()){
             throw new RuntimeException(orderInfoResponse.getMsg());
         }

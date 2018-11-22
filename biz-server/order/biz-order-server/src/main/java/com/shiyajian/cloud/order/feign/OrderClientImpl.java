@@ -19,13 +19,11 @@ import java.util.List;
  * create: 2018-10-24
  */
 @RestController
-//@RequestMapping("client")
 public class OrderClientImpl implements OrderClient {
 
 
     @Override
-    @GetMapping("/order/{orderNo}")
-    public ResponseVO<OrderInfoVO> getOrderInfoByNo(@PathVariable String orderNo) {
+    public ResponseVO<List<OrderInfoVO>> getOrderInfoByNo(@PathVariable String orderNo) {
         OrderInfoVO orderInfoVO = new OrderInfoVO();
         orderInfoVO.setOrderNo("123456");
         orderInfoVO.setUserId("13304094634");
@@ -43,7 +41,6 @@ public class OrderClientImpl implements OrderClient {
         product1.setProductName("油条");
         product1.setProductPrice(new BigDecimal("2.50"));
         product1.setQuantity(2);
-
         products.add(product0);
         products.add(product1);
         orderInfoVO.setProducts(products);

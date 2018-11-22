@@ -4,13 +4,19 @@ apply plugin: 'org.springframework.boot'
 
 dependencies {
     compile project(':biz-pay-api')
+    compile project(':biz-order-client')
     implementation(
             "org.springframework.boot:spring-boot-starter-undertow",
             "org.springframework.boot:spring-boot-starter-web",
             "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client",
             "org.springframework.cloud:spring-cloud-starter-hystrix:$hystrixVersion",
-            "org.springframework.cloud:spring-cloud-starter-feign:$feignVersion"
+            "org.springframework.cloud:spring-cloud-starter-feign:$feignVersion",
+            "com.alipay.sdk:alipay-sdk-java:$alipayVersion",
+            "com.github.binarywang:weixin-java-pay:$wechatpayVersion"
     )
+//    excludes(
+//            "org.springframework.boot:spring-boot-starter-tomcat"
+//    )
 }
 
 bootJar {
