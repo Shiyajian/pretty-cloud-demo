@@ -1,11 +1,11 @@
-description '支付中心'
+description '文件服务'
+
 
 apply plugin: 'org.springframework.boot'
 
 dependencies {
-    compile project(':biz-pay-api')
-    compile project(':biz-order-client')
-    compile project(':support-file-client')
+
+    compile project(":support-file-api")
 
     implementation(
             "org.springframework.boot:spring-boot-starter-undertow",
@@ -13,11 +13,9 @@ dependencies {
             "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client",
             "org.springframework.cloud:spring-cloud-starter-hystrix:$hystrixVersion",
             "org.springframework.cloud:spring-cloud-starter-feign:$feignVersion",
-            "com.alipay.sdk:alipay-sdk-java:$alipayVersion",
-            "com.github.binarywang:weixin-java-pay:$wechatpayVersion"
     )
 }
 
 bootJar {
-    baseName = 'order-server'
+    baseName = 'support-file-server'
 }

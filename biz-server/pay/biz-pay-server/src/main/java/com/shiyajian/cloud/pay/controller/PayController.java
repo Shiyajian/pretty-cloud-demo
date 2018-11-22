@@ -44,4 +44,10 @@ public class PayController {
         PayInfoVO payInfoVO = payServiceManager.payOrder(orderNo);
         return ResponseVOUtil.success(payInfoVO);
     }
+
+    @GetMapping("pay/file")
+    public ResponseVO<Void> payFileTest(){
+        payServiceManager.fileTest();
+        return ResponseVOUtil.success();
+    }
 }

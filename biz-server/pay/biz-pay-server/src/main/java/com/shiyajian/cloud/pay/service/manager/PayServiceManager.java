@@ -17,4 +17,6 @@ public interface PayServiceManager {
      * @return        支付流水信息
      */
     PayInfoVO payOrder(String orderNo);
+
+    void fileTest();
 }

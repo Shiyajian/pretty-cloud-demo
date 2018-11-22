@@ -1,16 +1,27 @@
 package com.shiyajian.cloud.pay.service.manager.impl;
 
+import com.shiyajian.cloud.file.client.FileClient;
 import com.shiyajian.cloud.global.entity.ResponseVO;
-import com.shiyajian.cloud.order.feign.OrderClient;
-import com.shiyajian.cloud.order.feign.entity.vo.OrderInfoVO;
+import com.shiyajian.cloud.order.client.OrderClient;
+import com.shiyajian.cloud.order.client.entity.vo.OrderInfoVO;
 import com.shiyajian.cloud.pay.pojo.dto.OrderDTO;
 import com.shiyajian.cloud.pay.pojo.vo.PayInfoVO;
 import com.shiyajian.cloud.pay.service.PayService;
 import com.shiyajian.cloud.pay.service.manager.PayServiceManager;
+import org.apache.commons.fileupload.disk.DiskFileItem;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.List;
 
 /**
@@ -25,6 +36,9 @@ public class PayServiceManagerImpl implements PayServiceManager {
 
     @Autowired
     private OrderClient orderClient;
+
+    @Autowired
+    private FileClient fileClient;
 
 
     @Override
@@ -42,5 +56,40 @@ public class PayServiceManagerImpl implements PayServiceManager {
         payService.saveOrderPay(orderDTO);
 
         return null;
+    }
+
+    @Override
+    public void fileTest() {
+        fileClient.getFileById("12345");
+        File file = new File("/Users/shiyajian/hello.txt");
+        DiskFileItem fileItem = (DiskFileItem) new DiskFileItemFactory().createItem("files",
+                MediaType.TEXT_PLAIN_VALUE, true, file.getName());
+
+        try (InputStream input = new FileInputStream(file);
+             OutputStream os = fileItem.getOutputStream()) {
+            IOUtils.copy(input, os);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Invalid file: " + e, e);
+        }
+
+        MultipartFile multi = new CommonsMultipartFile(fileItem);
+
+        MultipartFile multi2 = new CommonsMultipartFile(fileItem);
+        MultipartFile[] files = {multi,multi2};
+        fileClient.updateFiles(files,1);
+
+        DiskFileItem fileItem2 = (DiskFileItem) new DiskFileItemFactory().createItem("file",
+                MediaType.TEXT_PLAIN_VALUE, true, file.getName());
+
+        try (InputStream input = new FileInputStream(file);
+             OutputStream os = fileItem2.getOutputStream()) {
+            IOUtils.copy(input, os);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Invalid file: " + e, e);
+        }
+
+        MultipartFile multi3 = new CommonsMultipartFile(fileItem2);
+
+        fileClient.updateFile(multi3,2);
     }
 }

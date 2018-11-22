@@ -1,0 +1,43 @@
+package com.shiyajian.cloud.file.client;
+
+import com.shiyajian.cloud.file.client.entity.vo.FileVO;
+import com.shiyajian.cloud.global.entity.ResponseVO;
+import com.shiyajian.cloud.global.utils.ResponseVOUtil;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
+
+/**
+ * @author shiyajian
+ * create: 2018-11-22
+ */
+@RestController
+public class FileClientImpl implements FileClient {
+
+
+    @Override
+    public ResponseVO<FileVO> getFileById(@PathVariable("fileId") String fileId) {
+        FileVO vo = new FileVO();
+        vo.setFileName("test");
+        vo.setFileUrl("http://www.baidu.com");
+        return ResponseVOUtil.success(vo);
+    }
+
+    @Override
+    public ResponseVO<List<FileVO>> updateFiles(@RequestPart("files") MultipartFile[] files, @RequestParam("type") Integer type) {
+        System.out.println(files[0].getName());
+        return null;
+    }
+
+    @Override
+    public ResponseVO<FileVO> updateFile(@RequestPart("file") MultipartFile file, @RequestParam("type") Integer type) {
+        System.out.println(file.getName());
+        return null;
+    }
+
+
+}

@@ -1,0 +1,15 @@
+version '1.0-SNAPSHOT'
+description '文件服务调用'
+
+jar{
+    enabled = false
+}
+
+dependencies {
+
+    compile project(':support-file-api')
+    implementation(
+            "org.springframework.cloud:spring-cloud-openfeign-core"
+    )
+
+}

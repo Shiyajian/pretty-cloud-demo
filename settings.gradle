@@ -20,16 +20,21 @@ project(":biz-order-server").projectDir = new File("biz-server/order/biz-order-s
 project(":biz-order-client").projectDir = new File("biz-server/order/biz-order-client")
 project(":biz-order-api").projectDir = new File("biz-server/order/biz-order-api")
 
-// - 结算
+// - 支付结算
 include ":biz-pay-server", ":biz-pay-client", ":biz-pay-api"
 project(":biz-pay-server").projectDir = new File("biz-server/pay/biz-pay-server")
 project(":biz-pay-client").projectDir = new File("biz-server/pay/biz-pay-client")
 project(":biz-pay-api").projectDir = new File("biz-server/pay/biz-pay-api")
 
-// 辅助业务相关
-include ":notify-server", ":file-server"
+// 通知服务
+include ":notify-server"
 project(":notify-server").projectDir = new File("support-server/notify-server")
-project(":file-server").projectDir = new File("support-server/file-server")
+
+// 文件服务
+include ":support-file-server" , ":support-file-client",":support-file-api"
+project(":support-file-server").projectDir = new File("support-server/file/support-file-server")
+project(":support-file-client").projectDir = new File("support-server/file/support-file-client")
+project(":support-file-api").projectDir = new File("support-server/file/support-file-api")
 
 // 自研工具类/依赖，最后打成jar
 include ":core-lib"
