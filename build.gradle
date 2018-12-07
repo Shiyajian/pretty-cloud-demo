@@ -7,8 +7,13 @@ buildscript {
     }
 }
 
+
 // 子模块通用配置
 subprojects {
+
+    print("hello--------------")
+
+
     apply plugin: "java"
     apply plugin: "maven"
     apply plugin: "idea"
@@ -63,13 +68,18 @@ subprojects {
         compileOnly(
                 "com.google.code.findbugs:jsr305:$findbugsVersion",
                 "org.projectlombok:lombok",
-                "javax.servlet:javax.servlet-api"
+                "javax.servlet:javax.servlet-api",
+                "org.springframework.boot:spring-boot-devtools"
         )
 
         testImplementation(
                 "junit:junit",
                 "org.springframework.boot:spring-boot-starter-test"
         )
+    }
+    
+    if(it.name.contains('client')){
+        apply from : rootDir.absolutePath + '/scripts/test.gradle'
     }
 
     // 全局web容器由`undertow`替换成`tomcat`
