@@ -54,5 +54,7 @@ public class Global {
         public static final String PROJECT_NAME = "cobweb";
 
         private Const() { /* no instance */ }
+
     }
+
 }
