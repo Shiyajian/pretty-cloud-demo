@@ -1,0 +1,20 @@
+apply plugin: 'maven-publish'
+uploadArchives {
+    repositories {
+        mavenDeployer {
+
+            repository(url: new URL("$centralUrl")) {
+                authentication(userName: "$userName", password: "$password")
+            }
+            //构造项目的Pom文件
+            pom.project {
+                artifactId = project.name
+                version = "$project.version"
+                groupId = "$project.group"
+                packaging = 'jar'
+                description = "$project.description"
+            }
+        }
+
+    }
+}

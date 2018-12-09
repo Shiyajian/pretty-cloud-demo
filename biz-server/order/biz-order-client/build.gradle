@@ -1,15 +1,6 @@
-version '1.0-SNAPSHOT'
-description '订单服务api类'
-
-jar{
-    enabled = false
-}
+version '1.0.0-SNAPSHOT'
+description '订单服务客户端'
 
 dependencies {
-
-    compile project(':biz-order-api')
-    implementation(
-            "org.springframework.cloud:spring-cloud-openfeign-core"
-    )
-
+    compile(project(':biz-order-api'))
 }

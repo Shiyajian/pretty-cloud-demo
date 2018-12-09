@@ -1,15 +1,8 @@
 version '1.0-SNAPSHOT'
 description '文件服务共用类'
 
-jar{
-    enabled = false
-}
-
 dependencies {
-
-    implementation(
-            "org.springframework.cloud:spring-cloud-starter-openfeign"
-    )
-
+//    implementation(
+//    )
 }
 

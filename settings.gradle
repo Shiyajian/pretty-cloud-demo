@@ -37,8 +37,8 @@ project(":support-file-client").projectDir = new File("support-server/file/suppo
 project(":support-file-api").projectDir = new File("support-server/file/support-file-api")
 
 // 自研工具类/依赖，最后打成jar
-include ":core-lib"
-project(":core-lib").projectDir = new File("ref-libs/core-lib")
+include ":core-starter"
+project(":core-starter").projectDir = new File("ref-libs/core-starter")
 
 
 

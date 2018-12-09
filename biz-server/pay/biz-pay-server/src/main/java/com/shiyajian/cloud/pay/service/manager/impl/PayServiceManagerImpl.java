@@ -76,7 +76,7 @@ public class PayServiceManagerImpl implements PayServiceManager {
 
         MultipartFile multi2 = new CommonsMultipartFile(fileItem);
         MultipartFile[] files = {multi,multi2};
-        fileClient.updateFiles(files,1);
+        fileClient.uploadFiles(files,1);
 
         DiskFileItem fileItem2 = (DiskFileItem) new DiskFileItemFactory().createItem("file",
                 MediaType.TEXT_PLAIN_VALUE, true, file.getName());
@@ -90,6 +90,6 @@ public class PayServiceManagerImpl implements PayServiceManager {
 
         MultipartFile multi3 = new CommonsMultipartFile(fileItem2);
 
-        fileClient.updateFile(multi3,2);
+        fileClient.uploadFile(multi3,2);
     }
 }

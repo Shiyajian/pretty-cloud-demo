@@ -1,14 +1,6 @@
-description '消息通知中心'
-
-apply plugin: 'org.springframework.boot'
+version '1.0.0-SNAPSHOT'
+description '消息通知服务端'
 
 dependencies {
-    implementation(
-            "org.springframework.boot:spring-boot-starter-undertow",
-            "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client",
-    )
-}
-
-bootJar {
-    baseName = 'notify-server'
+    // compile()
 }

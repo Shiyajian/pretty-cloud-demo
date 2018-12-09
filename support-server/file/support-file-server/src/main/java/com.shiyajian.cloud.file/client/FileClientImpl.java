@@ -28,13 +28,15 @@ public class FileClientImpl implements FileClient {
     }
 
     @Override
-    public ResponseVO<List<FileVO>> updateFiles(@RequestPart("files") MultipartFile[] files, @RequestParam("type") Integer type) {
+    public ResponseVO<List<FileVO>> uploadFiles(@RequestPart("files") MultipartFile[] files,
+                                                @RequestParam("type") Integer type) {
         System.out.println(files[0].getName());
         return null;
     }
 
     @Override
-    public ResponseVO<FileVO> updateFile(@RequestPart("file") MultipartFile file, @RequestParam("type") Integer type) {
+    public ResponseVO<FileVO> uploadFile(@RequestPart("file") MultipartFile file,
+                                         @RequestParam("type") Integer type) {
         System.out.println(file.getName());
         return null;
     }

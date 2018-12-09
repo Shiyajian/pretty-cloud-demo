@@ -1,0 +1,25 @@
+apply plugin: "org.springframework.boot"
+
+dependencies {
+    // implementation 和 compile 的关系还需要确定下，在依赖树中，compile的项目可以打开，impl的不可以，why？
+    implementation(
+            "org.springframework.boot:spring-boot-starter-undertow",
+            "org.springframework.cloud:spring-cloud-starter-hystrix:$hystrixVersion",
+            "org.springframework.cloud:spring-cloud-starter-feign:$feignVersion"
+            // fileTree(dir: "${rootProject.projectDir}/lib", include: '*.jar')
+    )
+    implementation("org.springframework.boot:spring-boot-starter-web") {
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+    }
+    if (project.name.contains('eureka')) {
+        implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-server")
+    } else {
+        implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
+    }
+   
+    testImplementation(
+            "junit:junit",
+            "org.springframework.boot:spring-boot-starter-test"
+    )  
+    testAnnotationProcessor 'org.projectlombok:lombok'
+}

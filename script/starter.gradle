@@ -1,0 +1,35 @@
+apply plugin: 'maven-publish'
+uploadArchives {
+    repositories {
+        mavenDeployer {
+
+            repository(url: new URL("$centralUrl")) {
+                authentication(userName: "$userName", password: "$password")
+            }
+            //构造项目的Pom文件
+            pom.project {
+                artifactId = project.name
+                version = "$project.version"
+                groupId = "$project.group"
+                packaging = 'jar'
+                description = "$project.description"
+            }
+        }
+
+    }
+}
+compileJava.dependsOn(processResources)
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives sourcesJar
+}
+
+dependencies{
+    annotationProcessor group: 'org.springframework.boot', name: 'spring-boot-configuration-processor', version: springBootVersion
+    compileOnly group: 'org.springframework.boot', name: 'spring-boot-autoconfigure', version: springBootVersion
+}

@@ -1,15 +1,7 @@
-version '1.0-SNAPSHOT'
-description '支付服务其他服务调用类'
+version '1.0.0-SNAPSHOT'
+description '支付服务客户端'
 
-jar{
-    enabled = false
-}
 
 dependencies {
-
-    compile project(':biz-pay-api')
-    implementation(
-            "org.springframework.cloud:spring-cloud-openfeign-core"
-    )
-
+    compile(project(':biz-pay-api'))
 }

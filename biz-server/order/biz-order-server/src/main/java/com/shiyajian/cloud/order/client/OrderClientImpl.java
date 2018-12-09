@@ -4,7 +4,8 @@ import com.shiyajian.cloud.global.entity.ResponseVO;
 import com.shiyajian.cloud.global.utils.ResponseVOUtil;
 import com.shiyajian.cloud.order.client.entity.vo.OrderInfoVO;
 import com.shiyajian.cloud.order.client.entity.vo.ProductVO;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -14,7 +15,6 @@ import java.util.List;
 /**
  * 提供给外部服务的实现类
  * 参数、方法名、请求路径等应该一致
- *
  * @author shiyajian
  * create: 2018-10-24
  */
