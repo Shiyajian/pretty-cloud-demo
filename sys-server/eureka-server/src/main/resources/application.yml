@@ -4,7 +4,7 @@ server:
    direct-buffers: true
 spring:
   application:
-    name: service-registration
+    name: eureka-server
 eureka:
   client:
     register-with-eureka: false

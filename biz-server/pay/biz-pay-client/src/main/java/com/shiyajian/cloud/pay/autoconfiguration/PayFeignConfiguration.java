@@ -1,6 +1,6 @@
 package com.shiyajian.cloud.pay.autoconfiguration;
 
-import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -11,6 +11,6 @@ import org.springframework.context.annotation.Configuration;
  * create: 2018-10-24
  */
 @Configuration
-@EnableFeignClients("com.shiyajian.cloud.pay.feign")
+@ComponentScan("com.shiyajian.cloud.pay.client")
 public class PayFeignConfiguration {
 }

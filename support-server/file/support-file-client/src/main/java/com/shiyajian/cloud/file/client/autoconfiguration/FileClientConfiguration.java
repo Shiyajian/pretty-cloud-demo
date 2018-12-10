@@ -1,7 +1,7 @@
 package com.shiyajian.cloud.file.client.autoconfiguration;
 
 
-import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -12,6 +12,6 @@ import org.springframework.context.annotation.Configuration;
  * create: 2018-11-22
  */
 @Configuration
-@EnableFeignClients("com.shiyajian.cloud.file.client")
+@ComponentScan("com.shiyajian.cloud.file.client")
 public class FileClientConfiguration {
 }

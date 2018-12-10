@@ -2,16 +2,17 @@ package com.shiyajian.cloud.global.enums;
 
 /**
  * 业务返回状态枚举类
- *
  * @author shiyajian
  * create: 2018-10-24
  */
 public enum ServiceStateEnum {
 
-    /**
-     * 请求成功
-     */
-    SUCCESS(20000, "success");
+    /** 请求成功 */
+    SUCCESS(20000, "success"),
+
+    /** 服务熔断降级 */
+    FALLBACK(20500, "success");
+
 
     private int code;
 

@@ -1,4 +1,4 @@
-package com.shiyajian.cloud.pay;
+package com.shiyajian.cloud.pay.client;
 
 import com.shiyajian.cloud.global.entity.ResponseVO;
 import com.shiyajian.cloud.pay.client.entity.param.ScanPayParam;

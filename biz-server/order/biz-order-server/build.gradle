@@ -3,4 +3,6 @@ description '订单服务'
 
 dependencies {
     compile project(':biz-order-api')
+    compile project(':support-file-client')
+    compile project(':biz-pay-client')
 }

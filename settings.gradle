@@ -1,8 +1,9 @@
 rootProject.name = "cobweb"
 
 // spring cloud 相关
-include ":eureka-server"
+include ":eureka-server"/*,'admin-server'*/
 project(":eureka-server").projectDir = new File("sys-server/eureka-server")
+// project(":admin-server").projectDir = new File("sys-server/admin-server")
 
 // 核心业务相关
 
@@ -39,6 +40,4 @@ project(":support-file-api").projectDir = new File("support-server/file/support-
 // 自研工具类/依赖，最后打成jar
 include ":core-starter"
 project(":core-starter").projectDir = new File("ref-libs/core-starter")
-
-
 

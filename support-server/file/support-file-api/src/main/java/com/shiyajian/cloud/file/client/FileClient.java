@@ -2,6 +2,7 @@ package com.shiyajian.cloud.file.client;
 
 import com.shiyajian.cloud.file.client.config.FeignMultipartSupportConfig;
 import com.shiyajian.cloud.file.client.entity.vo.FileVO;
+import com.shiyajian.cloud.file.client.fallback.FileClientFallback;
 import com.shiyajian.cloud.global.entity.ResponseVO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,11 @@ import static org.springframework.http.MediaType.MULTIPART_FORM_DATA_VALUE;
  * @author shiyajian
  * create: 2018-11-22
  */
-@FeignClient(value = "support-file-server", configuration = FeignMultipartSupportConfig.class)
+@FeignClient(
+        value = "support-file-server",
+        configuration = FeignMultipartSupportConfig.class,
+        fallback = FileClientFallback.class
+)
 public interface FileClient {
 
     /**

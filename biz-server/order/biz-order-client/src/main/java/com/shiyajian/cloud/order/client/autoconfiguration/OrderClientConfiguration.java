@@ -1,6 +1,6 @@
 package com.shiyajian.cloud.order.client.autoconfiguration;
 
-import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -10,6 +10,6 @@ import org.springframework.context.annotation.Configuration;
  * create: 2018-10-24
  */
 @Configuration
-@EnableFeignClients("com.shiyajian.cloud.order.client")
+@ComponentScan("com.shiyajian.cloud.order.client")
 public class OrderClientConfiguration {
 }

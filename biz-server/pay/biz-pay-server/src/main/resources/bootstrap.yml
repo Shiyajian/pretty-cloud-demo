@@ -1,5 +1,5 @@
 server:
-  port: 8000
+  port: 8500
   undertow:
     direct-buffers: true
   compression:
@@ -15,7 +15,7 @@ eureka:
     prefer-ip-address: true
 spring:
   application:
-    name: pay-server
+    name: biz-pay-server
   http:
     encoding:
       enabled: true
@@ -42,3 +42,4 @@ spring:
       allow_unquoted_control_chars: true
       #允许出现单引号
       allow_single_quotes: true
+debug: true
