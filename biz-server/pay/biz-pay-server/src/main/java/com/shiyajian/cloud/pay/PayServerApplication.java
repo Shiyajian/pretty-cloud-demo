@@ -9,7 +9,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * create: 2018-10-23
  */
 @SpringCloudApplication
-@EnableFeignClients
 public class PayServerApplication {
     public static void main(String[] args) {
         SpringApplication.run(PayServerApplication.class);

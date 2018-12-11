@@ -9,7 +9,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * create: 2018-10-23
  */
 @SpringCloudApplication
-@EnableFeignClients
+
 public class OrderServerApplication {
     public static void main(String[] args) {
         SpringApplication.run(OrderServerApplication.class);
