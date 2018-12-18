@@ -1,10 +1,4 @@
 rootProject.name = "cobweb"
-
-// spring cloud 相关
-include ":eureka-server"/*,'admin-server'*/
-project(":eureka-server").projectDir = new File("sys-server/eureka-server")
-// project(":admin-server").projectDir = new File("sys-server/admin-server")
-
 // 核心业务相关
 
 // - 用户中心（包括账号、组织管理、权限管理）

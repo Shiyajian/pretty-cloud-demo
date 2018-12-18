@@ -5,18 +5,13 @@ dependencies {
     implementation(
             "org.springframework.boot:spring-boot-starter-undertow",
             "org.springframework.cloud:spring-cloud-starter-hystrix:$hystrixVersion",
-            "org.springframework.cloud:spring-cloud-starter-feign:$feignVersion"
+            "org.springframework.cloud:spring-cloud-starter-feign:$feignVersion",
+            "org.springframework.cloud:spring-cloud-starter-alibaba-nacos-config:$nacosVersion",
+            "org.springframework.cloud:spring-cloud-starter-alibaba-nacos-discovery:$nacosVersion"
             // fileTree(dir: "${rootProject.projectDir}/lib", include: '*.jar')
     )
     implementation("org.springframework.boot:spring-boot-starter-web") {
         exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
-    }
-    if (project.name.contains('eureka')) {
-        implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-server")
-    } else {
-        // implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
-        implementation("org.springframework.cloud:spring-cloud-starter-alibaba-nacos-config:$nacosVersion")
-        implementation("org.springframework.cloud:spring-cloud-starter-alibaba-nacos-discovery:$nacosVersion")
     }
 
     testImplementation(
