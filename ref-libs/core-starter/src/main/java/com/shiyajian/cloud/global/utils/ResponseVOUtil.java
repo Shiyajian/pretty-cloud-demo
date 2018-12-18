@@ -44,9 +44,9 @@ public class ResponseVOUtil {
     }
 
     public static ResponseVO fallback(Object object) {
-        return new ResponseVO(ServiceStateEnum.SUCCESS.getCode(),
-                ServiceStateEnum.SUCCESS.getMsg(),
-                true,
+        return new ResponseVO(ServiceStateEnum.FALLBACK.getCode(),
+                ServiceStateEnum.FALLBACK.getMsg(),
+                false,
                 0L,
                 object);
     }

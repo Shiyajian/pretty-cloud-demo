@@ -48,9 +48,9 @@ subprojects {
         }
     }
     dependencies{
+        implementation ( "org.projectlombok:lombok")
         compileOnly(
                 "com.google.code.findbugs:jsr305:$findbugsVersion",
-                "org.projectlombok:lombok",
                 "javax.servlet:javax.servlet-api",
                 "org.springframework.boot:spring-boot-devtools"
         )

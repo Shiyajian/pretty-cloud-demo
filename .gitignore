@@ -2,3 +2,4 @@
 .idea
 .gradle
 cobweb.iml
+sys-server/nacos

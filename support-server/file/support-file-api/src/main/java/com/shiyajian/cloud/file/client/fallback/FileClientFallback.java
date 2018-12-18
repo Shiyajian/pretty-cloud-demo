@@ -4,6 +4,7 @@ import com.shiyajian.cloud.file.client.FileClient;
 import com.shiyajian.cloud.file.client.entity.vo.FileVO;
 import com.shiyajian.cloud.global.entity.ResponseVO;
 import com.shiyajian.cloud.global.utils.ResponseVOUtil;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.List;
  * @author shiyajian
  * create: 2018-12-10
  */
+@Service
 public class FileClientFallback implements FileClient {
 
     @Override

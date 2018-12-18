@@ -5,7 +5,6 @@ import com.shiyajian.cloud.file.client.entity.vo.FileVO;
 import com.shiyajian.cloud.file.client.fallback.FileClientFallback;
 import com.shiyajian.cloud.global.entity.ResponseVO;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 

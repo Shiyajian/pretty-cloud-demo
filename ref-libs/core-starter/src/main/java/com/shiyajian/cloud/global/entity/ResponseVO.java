@@ -2,6 +2,8 @@ package com.shiyajian.cloud.global.entity;
 
 import lombok.Data;
 
+import javax.annotation.Nullable;
+
 /**
  * 统一返回实体
  *
@@ -46,5 +48,10 @@ public class ResponseVO<T> {
         this.succeeded = succeeded;
         this.total = total;
         this.data = data;
+    }
+
+    @Nullable
+    public T get(){
+        return this.data;
     }
 }

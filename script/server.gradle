@@ -14,12 +14,14 @@ dependencies {
     if (project.name.contains('eureka')) {
         implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-server")
     } else {
-        implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
+        // implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
+        implementation("org.springframework.cloud:spring-cloud-starter-alibaba-nacos-config:$nacosVersion")
+        implementation("org.springframework.cloud:spring-cloud-starter-alibaba-nacos-discovery:$nacosVersion")
     }
-   
+
     testImplementation(
             "junit:junit",
             "org.springframework.boot:spring-boot-starter-test"
-    )  
+    )
     testAnnotationProcessor 'org.projectlombok:lombok'
 }

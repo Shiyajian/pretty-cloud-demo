@@ -6,13 +6,6 @@ server:
     enabled: true
     mime-types: application/json,application/xml,text/html,text/xml,text/plain
     min-response-size: 2048
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka
-  instance:
-    # ip-address:
-    prefer-ip-address: true
 spring:
   application:
     name: biz-order-server
@@ -42,3 +35,9 @@ spring:
       allow_unquoted_control_chars: true
       #允许出现单引号
       allow_single_quotes: true
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848
+      discovery:
+        server-addr: localhost:8848
