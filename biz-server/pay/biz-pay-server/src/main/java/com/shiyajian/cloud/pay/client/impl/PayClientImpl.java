@@ -1,6 +1,7 @@
-package com.shiyajian.cloud.pay.client;
+package com.shiyajian.cloud.pay.client.impl;
 
 import com.shiyajian.cloud.global.entity.ResponseVO;
+import com.shiyajian.cloud.pay.client.PayClient;
 import com.shiyajian.cloud.pay.client.entity.param.ScanPayParam;
 import com.shiyajian.cloud.pay.client.entity.vo.ScanPayVO;
 import org.springframework.web.bind.annotation.RestController;
