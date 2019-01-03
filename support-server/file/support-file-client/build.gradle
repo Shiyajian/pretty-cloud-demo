@@ -1,8 +1,0 @@
-version '1.0-SNAPSHOT'
-description '文件服务调用'
-
-dependencies {
-    compile(
-            project(':support-file-api')
-    )
-}

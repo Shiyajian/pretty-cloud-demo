@@ -1,6 +1,5 @@
 dependencies {
     compile(
-            project(':core-starter'),
             "org.springframework.cloud:spring-cloud-starter-openfeign"
     )
 }

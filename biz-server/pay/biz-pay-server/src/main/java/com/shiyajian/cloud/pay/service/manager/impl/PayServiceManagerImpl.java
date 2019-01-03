@@ -1,7 +1,7 @@
 package com.shiyajian.cloud.pay.service.manager.impl;
 
 import com.shiyajian.cloud.file.client.FileClient;
-import com.shiyajian.cloud.global.entity.ResponseVO;
+import com.shiyajian.cloud.core.entity.ResponseVO;
 import com.shiyajian.cloud.order.client.OrderClient;
 import com.shiyajian.cloud.order.client.entity.vo.OrderInfoVO;
 import com.shiyajian.cloud.pay.pojo.dto.OrderDTO;

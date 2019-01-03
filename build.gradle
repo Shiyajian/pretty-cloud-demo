@@ -46,8 +46,8 @@ subprojects {
             mavenBom "org.springframework.boot:spring-boot-dependencies:$springBootVersion"
         }
     }
-    dependencies{
-        implementation ( "org.projectlombok:lombok")
+    dependencies {
+        implementation("org.projectlombok:lombok")
         compileOnly(
                 "com.google.code.findbugs:jsr305:$findbugsVersion",
                 "javax.servlet:javax.servlet-api",
@@ -56,7 +56,7 @@ subprojects {
         annotationProcessor 'org.projectlombok:lombok'
     }
 
-    if (it.name.contains('api')) {
+    if (it.name.contains('api') && it.name.contains('biz')) {
         apply from: rootDir.absolutePath + "/script/api.gradle"
     }
 
@@ -68,9 +68,10 @@ subprojects {
         apply from: rootDir.absolutePath + "/script/server.gradle"
     }
 
-    if(it.name.contains('starter')){
+    if (it.name.contains('starter')) {
         apply from: rootDir.absolutePath + "/script/starter.gradle"
     }
+
 
     // 全局web容器由`undertow`替换成`tomcat`
     // configurations.all {

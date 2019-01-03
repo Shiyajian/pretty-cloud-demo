@@ -9,7 +9,7 @@ dependencies {
             "mysql:mysql-connector-java",
             project(':biz-pay-api'),
             project(':biz-order-client'),
-            project(':support-file-client'),
+            project(':biz-file-client'),
     )
     
 }

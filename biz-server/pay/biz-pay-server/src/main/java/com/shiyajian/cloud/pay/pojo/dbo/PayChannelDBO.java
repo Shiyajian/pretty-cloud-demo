@@ -12,9 +12,28 @@ import lombok.Data;
 @TableName("t_pay_channel")
 public class PayChannelDBO {
 
+    /**
+     * 支付渠道id
+     */
     private String id;
 
+    /**
+     * 渠道名称
+     */
     private String name;
 
+    /**
+     * 渠道类型
+     */
     private ChannelTypeEnum type;
+
+    /**
+     * 支持付款
+     */
+    private Boolean payable;
+
+    /**
+     * 支持退款
+     */
+    private Boolean refundable;
 }

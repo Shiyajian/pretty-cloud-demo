@@ -1,7 +1,7 @@
 package com.shiyajian.cloud.order.client;
 
-import com.shiyajian.cloud.global.entity.ResponseVO;
-import com.shiyajian.cloud.global.utils.ResponseVOUtil;
+import com.shiyajian.cloud.core.entity.ResponseVO;
+import com.shiyajian.cloud.core.utils.ResponseVOUtil;
 import com.shiyajian.cloud.order.client.entity.vo.OrderInfoVO;
 import com.shiyajian.cloud.order.client.entity.vo.ProductVO;
 import org.springframework.web.bind.annotation.PathVariable;

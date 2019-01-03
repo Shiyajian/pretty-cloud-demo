@@ -3,6 +3,7 @@ apply plugin: "org.springframework.boot"
 dependencies {
     // implementation 和 compile 的关系还需要确定下，在依赖树中，compile的项目可以打开，impl的不可以，why？
     implementation(
+            project(':core-starter'),
             "org.springframework.cloud:spring-cloud-starter-hystrix:$hystrixVersion",
             "org.springframework.cloud:spring-cloud-starter-feign:$feignVersion",
             "org.springframework.cloud:spring-cloud-starter-alibaba-nacos-config:$nacosVersion",

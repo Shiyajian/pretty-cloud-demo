@@ -1,15 +1,13 @@
 rootProject.name = "cobweb"
+// - 系统服务
 include ':gateway-server'
 project(":gateway-server").projectDir = new File("sys-server/gateway-server")
 
-// 核心业务相关
-// - 用户中心（包括账号、组织管理、权限管理）
-//include ":biz-pay-server"
-//project(":biz-pay-server").projectDir = new File("pay/biz-pay-server")
-//include ":biz-pay-client"
-//project(":biz-pay-client").projectDir = new File("pay/biz-pay-client")
-//include ":biz-pay-api"
-//project(":biz-pay-api").projectDir = new File("pay/biz-pay-api")
+// - 用户中心
+include ':biz-user-api',':biz-user-client' ,':biz-user-server'
+project(":biz-user-server").projectDir = new File("biz-server/user/biz-user-server")
+project(":biz-user-client").projectDir = new File("biz-server/user/biz-user-client")
+project(":biz-user-api").projectDir = new File("biz-server/user/biz-user-api")
 
 // - 订单中心
 include ":biz-order-server", ":biz-order-client", ":biz-order-api"
@@ -23,18 +21,19 @@ project(":biz-pay-server").projectDir = new File("biz-server/pay/biz-pay-server"
 project(":biz-pay-client").projectDir = new File("biz-server/pay/biz-pay-client")
 project(":biz-pay-api").projectDir = new File("biz-server/pay/biz-pay-api")
 
-// 通知服务
-include ":notify-server"
-project(":notify-server").projectDir = new File("support-server/notify-server")
+// - 通知服务
+include ":biz-notify-server"
+project(":biz-notify-server").projectDir = new File("biz-server/notify/notify-server")
 
-// 文件服务
-include ":support-file-server" , ":support-file-client",":support-file-api"
-project(":support-file-server").projectDir = new File("support-server/file/support-file-server")
-project(":support-file-client").projectDir = new File("support-server/file/support-file-client")
-project(":support-file-api").projectDir = new File("support-server/file/support-file-api")
+// - 文件服务
+include ":biz-file-server" , ":biz-file-client",":biz-file-api"
+project(":biz-file-server").projectDir = new File("biz-server/file/biz-file-server")
+project(":biz-file-client").projectDir = new File("biz-server/file/biz-file-client")
+project(":biz-file-api").projectDir = new File("biz-server/file/biz-file-api")
 
 // 自研工具类/依赖，最后打成jar
 include ":core-starter"
-project(":core-starter").projectDir = new File("ref-libs/core-starter")
-
+project(":core-starter").projectDir = new File("support-libs/core-starter")
+include ':core-api'
+project(":core-api").projectDir = new File("support-libs/core-api")
 

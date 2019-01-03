@@ -1,7 +1,0 @@
-description '文件服务'
-
-dependencies {
-    implementation(
-            project(":support-file-api")
-    )
-}

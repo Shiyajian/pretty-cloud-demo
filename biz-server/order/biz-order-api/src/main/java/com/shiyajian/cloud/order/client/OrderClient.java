@@ -1,9 +1,8 @@
 package com.shiyajian.cloud.order.client;
 
-import com.shiyajian.cloud.global.entity.ResponseVO;
+import com.shiyajian.cloud.core.entity.ResponseVO;
 import com.shiyajian.cloud.order.client.entity.vo.OrderInfoVO;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
