@@ -1,8 +1,8 @@
 package com.shiyajian.cloud.file.client;
 
-import com.shiyajian.cloud.file.client.entity.vo.FileVO;
 import com.shiyajian.cloud.core.entity.ResponseVO;
 import com.shiyajian.cloud.core.utils.ResponseVOUtil;
+import com.shiyajian.cloud.file.client.entity.vo.FileVO;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;

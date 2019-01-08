@@ -39,3 +39,4 @@ spring:
 feign:
   hystrix:
     enabled: true
+env: @env@

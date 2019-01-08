@@ -9,4 +9,10 @@ dependencies {
             "org.apache.commons:commons-lang3",
             "joda-time:joda-time"
     )
+    if (!project.name.startsWith("gateway")) {
+        implementation("org.springframework.boot:spring-boot-starter-undertow")
+        implementation("org.springframework.boot:spring-boot-starter-web") {
+            exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+        }
+    }
 }
