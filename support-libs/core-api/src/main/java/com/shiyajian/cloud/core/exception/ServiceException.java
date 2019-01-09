@@ -1,12 +1,15 @@
 package com.shiyajian.cloud.core.exception;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * @author shiyajian
  * create: 2019-01-08
  */
-@Data
+@Setter
+@Getter
 public class ServiceException extends RuntimeException {
 
     public StateCodeEnum state = StateCodeEnum.ERROR;
@@ -14,7 +17,7 @@ public class ServiceException extends RuntimeException {
     public String msg;
 
     public ServiceException(String key) {
-        this.msg = createI18nExceptionMsg(StateCodeEnum.ERROR, key, null);
+        this.msg = createI18nExceptionMsg(StateCodeEnum.ERROR, key);
     }
 
     public ServiceException(String key, Object... args) {
@@ -23,7 +26,7 @@ public class ServiceException extends RuntimeException {
 
     public ServiceException(StateCodeEnum stateCodeEnum, String key) {
         this.state = stateCodeEnum;
-        this.msg = createI18nExceptionMsg(stateCodeEnum, key, null);
+        this.msg = createI18nExceptionMsg(stateCodeEnum, key);
     }
 
     public ServiceException(StateCodeEnum stateCodeEnum, String key, Object... args) {

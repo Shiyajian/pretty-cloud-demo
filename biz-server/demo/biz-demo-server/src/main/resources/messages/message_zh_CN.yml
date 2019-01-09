@@ -1,0 +1,10 @@
+valid:
+  demo:
+    id:
+      not-null: id字段不能为空
+    name:
+      not-null: name字段不能为空
+    age:
+      not-null: age不能为空
+      max: 年龄超过最大限制
+      min: 年龄超过最小限制

@@ -3,6 +3,12 @@ rootProject.name = "cobweb"
 include ':gateway-server'
 project(":gateway-server").projectDir = new File("sys-server/gateway-server")
 
+// - demo
+include ':biz-demo-api',':biz-demo-client' ,':biz-demo-server'
+project(":biz-demo-server").projectDir = new File("biz-server/demo/biz-demo-server")
+project(":biz-demo-client").projectDir = new File("biz-server/demo/biz-demo-client")
+project(":biz-demo-api").projectDir = new File("biz-server/demo/biz-demo-api")
+
 // - 用户中心
 include ':biz-user-api',':biz-user-client' ,':biz-user-server'
 project(":biz-user-server").projectDir = new File("biz-server/user/biz-user-server")

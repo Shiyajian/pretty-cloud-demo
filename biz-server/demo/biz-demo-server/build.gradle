@@ -1,0 +1,7 @@
+description 'demo'
+
+dependencies {
+    compile(
+            project(":biz-demo-api")
+    )
+}

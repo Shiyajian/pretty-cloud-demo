@@ -24,6 +24,11 @@ public class ResponseVO<T> {
     private String msg;
 
     /**
+     * 详细的错误提示
+     */
+    private String detailMsg;
+
+    /**
      * 是否成功
      */
     private Boolean succeeded;

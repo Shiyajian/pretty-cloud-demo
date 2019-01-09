@@ -2,11 +2,9 @@ package com.shiyajian.cloud.core.exception;
 
 import com.shiyajian.cloud.core.entity.ResponseVO;
 import org.springframework.boot.context.properties.bind.validation.BindValidationException;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import java.util.Iterator;
 import java.util.stream.Collectors;
 
 /**

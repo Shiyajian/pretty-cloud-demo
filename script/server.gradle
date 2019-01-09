@@ -6,8 +6,8 @@ dependencies {
             project(':core-starter'),
             "org.springframework.cloud:spring-cloud-starter-hystrix:$hystrixVersion",
             "org.springframework.cloud:spring-cloud-starter-feign:$feignVersion",
-            "org.springframework.cloud:spring-cloud-starter-alibaba-nacos-config:$nacosVersion",
-            "org.springframework.cloud:spring-cloud-starter-alibaba-nacos-discovery:$nacosVersion"
+            // "org.springframework.cloud:spring-cloud-starter-alibaba-nacos-config:$nacosVersion",
+            // "org.springframework.cloud:spring-cloud-starter-alibaba-nacos-discovery:$nacosVersion"
             // fileTree(dir: "${rootProject.projectDir}/lib", include: '*.jar')
     )
     if (!project.name.startsWith("gateway")) {
