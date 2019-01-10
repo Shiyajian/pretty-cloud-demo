@@ -1,7 +1,7 @@
 package com.shiyajian.cloud.order.client;
 
 import com.shiyajian.cloud.core.entity.ResponseVO;
-import com.shiyajian.cloud.core.utils.ResponseVOUtil;
+import com.shiyajian.cloud.core.utils.ResponseUtil;
 import com.shiyajian.cloud.order.client.entity.vo.OrderInfoVO;
 import com.shiyajian.cloud.order.client.entity.vo.ProductVO;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,7 +23,7 @@ public class OrderClientImpl implements OrderClient {
 
 
     @Override
-    public ResponseVO<List<OrderInfoVO>> getOrderInfoByNo(@PathVariable String orderNo) {
+    public ResponseVO<List<OrderInfoVO>> getOrderInfoByNo(@PathVariable("orderNo") String orderNo) {
         OrderInfoVO orderInfoVO = new OrderInfoVO();
         orderInfoVO.setOrderNo("123456");
         orderInfoVO.setUserId("13304094634");
@@ -44,6 +44,8 @@ public class OrderClientImpl implements OrderClient {
         products.add(product0);
         products.add(product1);
         orderInfoVO.setProducts(products);
-        return ResponseVOUtil.success(products);
+        List<OrderInfoVO> orderList = new ArrayList<>();
+        orderList.add(orderInfoVO);
+        return ResponseUtil.success(orderList);
     }
 }

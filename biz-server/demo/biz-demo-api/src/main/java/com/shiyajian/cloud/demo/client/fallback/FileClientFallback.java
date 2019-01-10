@@ -1,7 +1,7 @@
 package com.shiyajian.cloud.demo.client.fallback;
 
 import com.shiyajian.cloud.core.entity.ResponseVO;
-import com.shiyajian.cloud.core.utils.ResponseVOUtil;
+import com.shiyajian.cloud.core.utils.ResponseUtil;
 import com.shiyajian.cloud.demo.client.FileClient;
 import com.shiyajian.cloud.demo.client.entity.vo.FileVO;
 import org.springframework.stereotype.Service;
@@ -18,16 +18,16 @@ public class FileClientFallback implements FileClient {
 
     @Override
     public ResponseVO<FileVO> getFileById(String fileId) {
-        return ResponseVOUtil.fallback(null);
+        return ResponseUtil.fallback(null);
     }
 
     @Override
     public ResponseVO<List<FileVO>> uploadFiles(MultipartFile[] files, Integer type) {
-        return ResponseVOUtil.fallback(null);
+        return ResponseUtil.fallback(null);
     }
 
     @Override
     public ResponseVO<FileVO> uploadFile(MultipartFile file, Integer type) {
-        return ResponseVOUtil.fallback(null);
+        return ResponseUtil.fallback(null);
     }
 }

@@ -13,8 +13,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class PayChannelMapperTest {
 
 
-    @Autowired
-    PayChannelMapper payChannelMapper;
+    // @Autowired
+    // PayChannelMapper payChannelMapper;
 
     @Before
     public void setUp() throws Exception {
@@ -22,7 +22,7 @@ public class PayChannelMapperTest {
 
     @Test
     public void selectTest() throws Exception{
-        PayChannelDBO payChannelDBO = payChannelMapper.selectById("12345");
-        System.out.println(payChannelDBO);
+        // PayChannelDBO payChannelDBO = payChannelMapper.selectById("12345");
+        // System.out.println(payChannelDBO);
     }
 }

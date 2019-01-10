@@ -2,10 +2,8 @@ package com.shiyajian.cloud.demo.exception;
 
 import com.shiyajian.cloud.core.entity.ResponseVO;
 import com.shiyajian.cloud.core.enums.ServiceStateEnum;
-import com.shiyajian.cloud.core.utils.ResponseVOUtil;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
-import org.springframework.context.i18n.LocaleContextHolder;
+import com.shiyajian.cloud.core.utils.ResponseUtil;
+import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.validation.BindException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -21,10 +19,6 @@ import java.util.stream.Collectors;
 @RestControllerAdvice
 public class ControllerExceptionHandler {
 
-
-    @Autowired
-    private MessageSource messageSource;
-
     /**
      * 所有精确的异常无法捕获，最后通过此异常捕获，然后计入日志文件，等待升级时候，增加对应的处理操作
      * @param e
@@ -33,7 +27,7 @@ public class ControllerExceptionHandler {
     @ExceptionHandler(Exception.class)
     public ResponseVO unknownExceptionHandler(Exception e) {
         System.out.println("发生了未知的异常");
-        return ResponseVOUtil.failed(ServiceStateEnum.UNKNOWN);
+        return ResponseUtil.failed(ServiceStateEnum.UNKNOWN);
     }
 
     /**
@@ -43,18 +37,16 @@ public class ControllerExceptionHandler {
      */
     @ExceptionHandler(BindException.class)
     public ResponseVO validationExceptionHandler(BindException e) {
+        e.printStackTrace();
         List<FieldError> fieldErrors = e.getFieldErrors();
         String errorMsg = fieldErrors.stream()
-                .map(item -> getErrorMsgByKey(item.getDefaultMessage()))
+                .map(DefaultMessageSourceResolvable::getDefaultMessage)
                 .collect(Collectors.joining("\n"));
         ResponseVO response = new ResponseVO();
         response.setCode(ServiceStateEnum.ILLEGAL_ARGUMENT.getCode());
         response.setMsg(ServiceStateEnum.ILLEGAL_ARGUMENT.getMsg());
-        response.setDetailMsg(errorMsg);
+        response.setDetail(errorMsg);
         return response;
     }
 
-    private String getErrorMsgByKey(String key) {
-        return messageSource.getMessage(key,null, LocaleContextHolder.getLocale());
-    }
 }

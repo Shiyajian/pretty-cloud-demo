@@ -81,4 +81,7 @@ subprojects {
     // 继承自dependencyManagement的jar包，原则上不应该去修改版本，因为每个版本都是spring经过权衡和测试的
     // 继承的jar如果版本有问题，可以采用下面这种方式修改版本
     // ext["lombok.version"] = "$lombokVersion"
+    // task makePretty(type: Delete) {
+    //     delete 'out'
+    // }
 }

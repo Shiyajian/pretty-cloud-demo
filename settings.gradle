@@ -10,10 +10,10 @@ project(":biz-demo-client").projectDir = new File("biz-server/demo/biz-demo-clie
 project(":biz-demo-api").projectDir = new File("biz-server/demo/biz-demo-api")
 
 // - 用户中心
-include ':biz-user-api',':biz-user-client' ,':biz-user-server'
-project(":biz-user-server").projectDir = new File("biz-server/user/biz-user-server")
-project(":biz-user-client").projectDir = new File("biz-server/user/biz-user-client")
-project(":biz-user-api").projectDir = new File("biz-server/user/biz-user-api")
+// include ':biz-user-api',':biz-user-client' ,':biz-user-server'
+// project(":biz-user-server").projectDir = new File("biz-server/user/biz-user-server")
+// project(":biz-user-client").projectDir = new File("biz-server/user/biz-user-client")
+// project(":biz-user-api").projectDir = new File("biz-server/user/biz-user-api")
 
 // - 订单中心
 include ":biz-order-server", ":biz-order-client", ":biz-order-api"
@@ -29,7 +29,7 @@ project(":biz-pay-api").projectDir = new File("biz-server/pay/biz-pay-api")
 
 // - 通知服务
 include ":biz-notify-server"
-project(":biz-notify-server").projectDir = new File("biz-server/notify/notify-server")
+project(":biz-notify-server").projectDir = new File("biz-server/notify/biz-notify-server")
 
 // - 文件服务
 include ":biz-file-server" , ":biz-file-client",":biz-file-api"

@@ -6,7 +6,6 @@ import javax.annotation.Nullable;
 
 /**
  * 统一返回实体
- *
  * @author shiyajian
  * create: 2018-10-24
  */
@@ -26,7 +25,7 @@ public class ResponseVO<T> {
     /**
      * 详细的错误提示
      */
-    private String detailMsg;
+    private String detail;
 
     /**
      * 是否成功
@@ -56,7 +55,7 @@ public class ResponseVO<T> {
     }
 
     @Nullable
-    public T get(){
+    public T get() {
         return this.data;
     }
 }

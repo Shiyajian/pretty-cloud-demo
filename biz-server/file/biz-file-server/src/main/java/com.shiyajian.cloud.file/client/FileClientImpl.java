@@ -1,7 +1,7 @@
 package com.shiyajian.cloud.file.client;
 
 import com.shiyajian.cloud.core.entity.ResponseVO;
-import com.shiyajian.cloud.core.utils.ResponseVOUtil;
+import com.shiyajian.cloud.core.utils.ResponseUtil;
 import com.shiyajian.cloud.file.client.entity.vo.FileVO;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,7 +24,7 @@ public class FileClientImpl implements FileClient {
         FileVO vo = new FileVO();
         vo.setFileName("test");
         vo.setFileUrl("http://www.baidu.com");
-        return ResponseVOUtil.success(vo);
+        return ResponseUtil.success(vo);
     }
 
     @Override

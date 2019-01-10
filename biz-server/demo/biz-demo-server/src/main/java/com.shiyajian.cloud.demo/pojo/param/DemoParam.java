@@ -13,14 +13,14 @@ import javax.validation.constraints.NotNull;
 @Data
 public class DemoParam {
 
-    @NotNull(message = "valid.demo.id.not-null")
+    @NotNull(message = "id不能为空")
     private String id;
 
-    @NotNull(message = "valid.demo.name.not-null")
+    @NotNull(message = "名字不能为空")
     private String name;
 
-    @NotNull(message = "valid.demo.age.not-null")
-    @Max(value = 150, message = "valid.demo.age.max")
-    @Min(value = 0, message = "valid.demo.age.min")
+    @NotNull(message = "年龄不能为空")
+    @Max(value = 150, message = "年能不能超过150")
+    @Min(value = 0, message = "年龄必须大于0")
     private int age;
 }
