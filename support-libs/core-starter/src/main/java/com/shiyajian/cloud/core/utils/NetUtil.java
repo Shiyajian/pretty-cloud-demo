@@ -1,6 +1,9 @@
 package com.shiyajian.cloud.core.utils;
 
+import com.shiyajian.cloud.core.context.ServletContext;
+
 import javax.servlet.http.HttpServletRequest;
+
 
 /**
  * @author shiyajian
@@ -9,14 +12,13 @@ import javax.servlet.http.HttpServletRequest;
 public final class NetUtil {
 
     private static final String UNKNOWN = "unknown";
+
     /**
      * 获得请求的真实ip
-     *
-     * @param request
      * @return
      */
-    public static String getIpAddress(HttpServletRequest request) {
-
+    public static String getIpAddress() {
+        HttpServletRequest request = ServletContext.request();
         String ip = request.getHeader("X-Forwarded-For");
 
         if (ip == null || ip.length() == 0 || UNKNOWN.equalsIgnoreCase(ip)) {

@@ -19,38 +19,40 @@
 ## 技术选型
 
 - 数据库： **MySQL**
-  - [订单系统的分布式主键及分库分表方案]()
-  - [MySQL的一主多从的读写分离方案]()
+- JDK: **JDK 64-Bit 1.8.0_144**
 - 构建工具：**Gradle**
-  - [为什么选择Gradle，而不选择Maven？]()
-  - [使用Gradle打造一个优美的系统结构]()
 - 微服务框架：**Spring Cloud**
-  - [微服务框架Spring Cloud 和服务治理框架 Dubbo的个人见解]()
   - 服务注册/配置管理 ： **Alibaba Nacos**
-    - [对比 eureka 、consul 、 nacos]()
   - 链路追踪：**Skywalking**
-    - [对比 ziplin 、 point、skywalking]()
   - 服务熔断：**Hystrix**
   - 服务网关：**Spring Cloud Gateway**
-    - [对比 Zuul 、Gateway]()
+  - 负载均衡：**Ribbon**s
   - 服务调用：**Open Feign + OkHttp**
 - ORM框架：**Mybatis + Mybatis Plus**
-  - [为什么选择Mybatis而不是Spring Data JPA？]()
-  - [如何打造一个完美的Mybatis]()
-- 国际化配置： **Spring** **+** **Yaml**
-  - [使用 Yaml 文件替代 Properties 文件作为 Spring i18n 的配置]()
-  - [具备国际化的全局异常处理方案]()
+- 国际化配置： **Spring MessageSource** 
 - 数据校验框架：**Spring Validation**
 - 接口管理系统：**DOClever**
-  - [为什么没有选用很流行的Swagger-UI]()
 - 用户认证：**JWT**
-  - [对比有状态的session-cookie方案和无状态的jwt方案]()
 - 数据库连接池：**Hikari CP**
-  - [对比 Druid 和 Hikari CP]()
 - 容器技术： **Docker + Docker Compose**
 - 缓存技术： **Redis + Lettuce + Redission**
-  - [Redis,Zookeeper,Redission 实现分布式锁]()
-
+- 分布式任务调度： **xxl-job**
+## 任务计划
+- 技术预演，所有功能实现在demo-server中
+- 业务分析，设计原型
+- 编码实现
+- 部署运维部署监控 (高可用，集群，分布式,实时监控报警，降级，自我修复)
+## 技术预演
+所有的技术选型都是根据一定的理论进行选择，选择严格执行一个规范，现在所有的技术实现，统一在biz-server/demo下面实现
+- 技术选型原则和架构原则
+MySql
+- Mysql各种数据类型分析，及业务字段选择
+- Mysql关于货币字段的存储类型选择
+- Mysql各种引擎的选择
+- Mysql索引相关
+- 异常处理
+- 拦截器（空格处理，xss,crf,sql注入拦截）
+关于Null和空字符串的思考
 ## 开发工具
 
 - IDE :  **IntelliJ IDEA**

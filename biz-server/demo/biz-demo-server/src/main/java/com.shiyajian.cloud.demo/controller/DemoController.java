@@ -1,10 +1,10 @@
 package com.shiyajian.cloud.demo.controller;
 
+import com.shiyajian.cloud.core.exception.UnauthorizedException;
 import com.shiyajian.cloud.demo.pojo.param.DemoParam;
+import com.shiyajian.cloud.demo.pojo.param.EnumParam;
 import com.shiyajian.cloud.demo.pojo.param.TrimParam;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -26,4 +26,23 @@ public class DemoController {
         return param.getName();
     }
 
+    @PostMapping("/trim/body")
+    public String testTrimBody(@RequestBody @Valid TrimParam param) {
+        return param.getName();
+    }
+
+    @GetMapping("/unauthorized")
+    public String unauthorized() {
+        throw new UnauthorizedException();
+    }
+
+    @GetMapping("/npe")
+    public String npe() {
+        throw new NullPointerException();
+    }
+
+    @PostMapping("/enum")
+    public EnumParam getEnum(@Valid @RequestBody EnumParam enumParam) {
+        return enumParam;
+    }
 }

@@ -20,12 +20,12 @@ public class ResponseVO<T> {
     /**
      * 统一返回状态码对应的描述
      */
-    private String msg;
+    private String error;
 
     /**
      * 详细的错误提示
      */
-    private String detail;
+    private String msg;
 
     /**
      * 是否成功

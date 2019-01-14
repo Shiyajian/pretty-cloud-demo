@@ -1,17 +1,23 @@
 package com.shiyajian.cloud.demo.pojo.param;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
 
 /**
  * @author shiyajian
- * create: 2019-01-10
+ * create: 2019-01-12
  */
 @Data
-public class TrimParam {
+public class EnumParam {
 
     @NotNull
+    private DemoEnum demoEnum;
+
+    private String id;
+
     private String name;
+
 
 }

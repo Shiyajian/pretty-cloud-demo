@@ -19,8 +19,11 @@ public enum ServiceStateEnum {
     /** 错误的状态 */
     ILLEGAL_STATE(20200, "illegal-state"),
 
+    /** 没有授权 */
+    UNAUTHORIZED(20401, "unauthorized"),
+
     /** 没找到对应的资源 */
-    NOT_FOUND(20400, "not-found"),
+    NOT_FOUND(20404, "not-found"),
 
     /** 服务熔断降级 */
     FALLBACK(20500, "success");
