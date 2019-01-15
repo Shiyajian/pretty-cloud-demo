@@ -1,9 +1,11 @@
 package com.shiyajian.cloud.demo.controller;
 
 import com.shiyajian.cloud.core.exception.UnauthorizedException;
+import com.shiyajian.cloud.demo.pojo.param.DemoEnum;
 import com.shiyajian.cloud.demo.pojo.param.DemoParam;
 import com.shiyajian.cloud.demo.pojo.param.EnumParam;
 import com.shiyajian.cloud.demo.pojo.param.TrimParam;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -15,6 +17,9 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/demo")
 public class DemoController {
+
+    @Value("${spring.profiles.active}")
+    private String env;
 
     @GetMapping("/get")
     public String getDemo(@Valid DemoParam param) {
@@ -42,7 +47,21 @@ public class DemoController {
     }
 
     @PostMapping("/enum")
-    public EnumParam getEnum(@Valid @RequestBody EnumParam enumParam) {
+    public EnumParam postEnum(@Valid @RequestBody EnumParam enumParam) {
         return enumParam;
+    }
+
+    @GetMapping("/enum")
+    public EnumParam getEnum() {
+        EnumParam param = new EnumParam();
+        param.setId("123");
+        param.setName("hello");
+        param.setDemoEnum(DemoEnum.HELLO);
+        return param;
+    }
+
+    @GetMapping("/profile")
+    public String getProfile() {
+        return env;
     }
 }

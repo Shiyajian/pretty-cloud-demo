@@ -21,12 +21,17 @@ public enum DemoEnum implements Enumable {
 
     @Override
     public String getKey() {
-        return this.getKey();
+        return this.key;
     }
 
     @Override
     public int getValue() {
-        return this.getValue();
+        return this.value;
+    }
+
+    @Override
+    public String getGroup() {
+        return "demo";
     }
 
     public static DemoEnum valueOf(Integer value) {
@@ -41,11 +46,4 @@ public enum DemoEnum implements Enumable {
         }
         return null;
     }
-
-    @Override
-    public String toString() {
-        return "{" +
-                "key='" + key + '\'' +
-                ", value=" + value +
-                '}';
-    }}
+}

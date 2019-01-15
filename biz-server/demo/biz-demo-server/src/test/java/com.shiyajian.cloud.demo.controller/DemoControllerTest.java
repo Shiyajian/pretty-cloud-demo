@@ -76,10 +76,7 @@ public class DemoControllerTest {
 
     @Test
     public void testEnumCover() throws Exception {
-        EnumParam param = new EnumParam();
-        param.setId("123");
-        param.setName("hello");
-        param.setDemoEnum(DemoEnum.HELLO);
+
         Map<String,String> map = Maps.newHashMap();
         map.put("id","123");
         map.put("name","hello");
@@ -94,9 +91,31 @@ public class DemoControllerTest {
                 .andReturn();
         String response = mvcResult.getResponse().getContentAsString();
         System.out.println(response);
-        EnumParam responseEnum = JsonUtil.toObject(response, EnumParam.class);
+        EnumParam responseEnum = JsonUtil.toObject(JsonUtil.toJson(map), EnumParam.class);
         System.out.println(responseEnum);
-        assertTrue(responseEnum.equals(param));
+        // assertTrue(responseEnum.equals(param));
 
+    }
+
+    @Test
+    public void printEnum() throws Exception{
+        MvcResult mvcResult = mockMvc.perform(
+                get("/demo/enum")
+        )
+                .andExpect(status().isOk())
+                .andReturn();
+        String response = mvcResult.getResponse().getContentAsString();
+        System.out.println(response);
+    }
+
+    @Test
+    public void getProfile() throws Exception{
+        MvcResult mvcResult = mockMvc.perform(
+                get("/demo/profile")
+        )
+                .andExpect(status().isOk())
+                .andReturn();
+        String response = mvcResult.getResponse().getContentAsString();
+        assertTrue("dev".equals(response));
     }
 }

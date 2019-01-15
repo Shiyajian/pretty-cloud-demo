@@ -13,7 +13,7 @@ subprojects {
     apply plugin: "java"
     apply plugin: "maven"
     apply plugin: "io.spring.dependency-management"
-
+    apply plugin: 'idea'
     ext {
         compileJava.options.encoding = "UTF-8"
         compileTestJava.options.encoding = "UTF-8"
@@ -24,6 +24,13 @@ subprojects {
 
     tasks.withType(JavaCompile) {
         options.encoding = "UTF-8"
+    }
+
+    idea {
+        module {
+            downloadJavadoc = true
+            downloadSources = true
+        }
     }
 
     repositories {
@@ -72,6 +79,10 @@ subprojects {
         apply from: rootDir.absolutePath + "/script/starter.gradle"
     }
 
+    def profile = profile ?: "dev"
+    processResources {
+        filter org.apache.tools.ant.filters.ReplaceTokens, tokens: [profile: profile]
+    }
 
     // 全局web容器由`undertow`替换成`tomcat`
     // configurations.all {
@@ -84,4 +95,33 @@ subprojects {
     // task makePretty(type: Delete) {
     //     delete 'out'
     // }
+
+    // (api.client) 也应该打tag 入库
+
+    // (server)部署测试服务器（此任务应该是Jenkins调用）
+    task deployTestProject(){
+        // 设置profile为 test环境
+        profile = "test"
+        // 设置编译版本（此处应该有个存储的地方，每次编译 +1版本号，
+        // test - > snapshot
+        // 预生产环境 -> ga
+        // 正式发布 -> release
+        // ，api,client,server jar包都入库
+
+        // 从gitlab 拉取最新的项目
+
+        // 删除build 和out目录
+
+        // 编译
+
+        // 可选，是否删除指定的镜像文件
+
+        // 根据Dockfile制作镜像，并上传到镜像仓库
+
+        // 连接到目标服务器 启动镜像
+
+    }
+}
+task deployAllProject(){
+    // 循环调用单个构建任务
 }

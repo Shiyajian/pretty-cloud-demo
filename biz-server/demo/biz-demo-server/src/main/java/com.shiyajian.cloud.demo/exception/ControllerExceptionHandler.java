@@ -1,10 +1,6 @@
 package com.shiyajian.cloud.demo.exception;
 
-import com.shiyajian.cloud.core.entity.ResponseVO;
-import com.shiyajian.cloud.core.enums.ServiceStateEnum;
 import com.shiyajian.cloud.core.exception.UnauthorizedException;
-import com.shiyajian.cloud.core.utils.NetUtil;
-import com.shiyajian.cloud.core.utils.ResponseUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
@@ -16,9 +12,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
-
-import static com.shiyajian.cloud.core.context.ServletContext.request;
 
 /**
  * @author shiyajian
@@ -35,10 +30,10 @@ public class ControllerExceptionHandler {
      */
     @ExceptionHandler(Throwable.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public ResponseVO unknownExceptionHandler(Throwable e) {
+    public ResponseEntity unknownExceptionHandler(Throwable e) {
         e.printStackTrace();
         log.debug("发生了异常", e);
-        return ResponseUtil.failed(ServiceStateEnum.UNKNOWN);
+        return ResponseEntity.ok(null);
     }
 
     /**
@@ -47,27 +42,22 @@ public class ControllerExceptionHandler {
      * @return 返回给前台的响应实体，会被Jackson序列化成json
      */
     @ExceptionHandler(BindException.class)
-    public ResponseVO validationExceptionHandler(BindException e) {
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResponseEntity<String> validationExceptionHandler(BindException e) {
         List<FieldError> fieldErrors = e.getFieldErrors();
         String errorMsg = fieldErrors.stream()
                 .map(DefaultMessageSourceResolvable::getDefaultMessage)
                 .collect(Collectors.joining("\n"));
-        ResponseVO response = new ResponseVO();
-        response.setCode(ServiceStateEnum.ILLEGAL_ARGUMENT.getCode());
-        response.setError(ServiceStateEnum.ILLEGAL_ARGUMENT.getMsg());
-        response.setMsg(errorMsg);
-        return response;
+        return ResponseEntity.of(Optional.of(errorMsg));
     }
 
     /**
      * 未登录，返回状态403，前台接受到此状态弹出/跳转到登录页面
      * @param e 没有权限异常
-     * @return 空
      */
     @ExceptionHandler(UnauthorizedException.class)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
-    public ResponseEntity unauthorizedExceptionHandler(UnauthorizedException e) {
-        return ResponseEntity.badRequest().build();
+    public void unauthorizedExceptionHandler(UnauthorizedException e) {
     }
 
 }

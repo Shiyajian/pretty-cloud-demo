@@ -17,9 +17,10 @@ spring:
       charset: UTF-8
     converters:
       preferred-json-mapper: jackson
+  profiles:
+    active: @profile@
 
 ## 开启熔断
 feign:
   hystrix:
     enabled: true
-#env: @env@

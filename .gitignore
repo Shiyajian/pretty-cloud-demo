@@ -1,5 +1,8 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea
 .gradle
-cobweb.iml
 sys-server/nacos
+
+**/**.iml
+**/build
+**/out

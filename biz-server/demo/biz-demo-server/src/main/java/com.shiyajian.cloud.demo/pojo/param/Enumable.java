@@ -9,4 +9,6 @@ public interface Enumable {
     String getKey();
 
     int getValue();
+
+    String getGroup();
 }
