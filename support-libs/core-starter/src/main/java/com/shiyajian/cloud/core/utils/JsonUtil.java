@@ -33,7 +33,6 @@ public class JsonUtil {
         JSON_MAPPER.configure(JsonParser.Feature.ALLOW_UNQUOTED_CONTROL_CHARS, true);
         // 允许出现单引号
         JSON_MAPPER.configure(JsonParser.Feature.ALLOW_SINGLE_QUOTES, true);
-        JSON_MAPPER.enable(SerializationFeature.WRITE_ENUMS_USING_TO_STRING);
     }
 
     public static ObjectMapper jsonMapperInstance() {

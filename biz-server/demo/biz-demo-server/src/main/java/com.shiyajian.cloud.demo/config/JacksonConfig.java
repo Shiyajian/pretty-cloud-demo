@@ -2,12 +2,11 @@ package com.shiyajian.cloud.demo.config;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.google.common.collect.ImmutableList;
 import com.shiyajian.cloud.core.utils.JsonUtil;
-import com.shiyajian.cloud.demo.pojo.param.DemoEnum;
+import com.shiyajian.cloud.demo.pojo.param.Enumable;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -43,7 +42,7 @@ public class JacksonConfig {
         ObjectMapper mapper = converter.getObjectMapper();
         SimpleModule customerModule = new SimpleModule();
 
-        // 反序列化时候，对字符串进行trim操作
+        // 修改String.class 反序列方法，当前端传来的数据（body中）,将数据转换成实体时候，对所有String类型的就行trim
         customerModule.addDeserializer(String.class, new JsonDeserializer<String>() {
             @Override
             public String deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException {
@@ -51,32 +50,19 @@ public class JacksonConfig {
             }
         });
 
-
-        // customerModule.addDeserializer(Enumable.class, new JsonDeserializer<Enumable>() {
-        //
-        //     @Override
-        //     public Enumable deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
-        //         return jsonParser.getIntValue();
-        //     }
-        // });
-        customerModule.addSerializer(DemoEnum.class, new JsonSerializer<DemoEnum>() {
+        // 枚举类序列化时候，将key，通过i18n转换成国际化语言，并且带上value一起返回前端
+        // 枚举类序列化时候，使用@JsonCreator注解实现
+        customerModule.addSerializer(Enumable.class, new JsonSerializer<Enumable>() {
             @Override
-            public void serialize(DemoEnum enumable, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
+            public void serialize(Enumable enumable, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
                 // 通过key,在i18n找对应枚举类的描述
-                String description = "enum." + enumable.getGroup() + "." + enumable.getKey();
                 jsonGenerator.writeStartObject();
                 jsonGenerator.writeNumberField("value", enumable.getValue());
-                jsonGenerator.writeStringField("description", description);
+                jsonGenerator.writeStringField("description", enumable.getKey());
                 jsonGenerator.writeEndObject();
             }
         });
-        customerModule.addDeserializer(DemoEnum.class, new JsonDeserializer<DemoEnum>() {
 
-            @Override
-            public DemoEnum deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
-                return DemoEnum.valueOf(Integer.parseInt(jsonParser.getValueAsString()));
-            }
-        });
         mapper.registerModule(customerModule);
 
 

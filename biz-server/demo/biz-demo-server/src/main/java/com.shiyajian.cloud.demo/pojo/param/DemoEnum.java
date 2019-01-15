@@ -1,17 +1,25 @@
 package com.shiyajian.cloud.demo.pojo.param;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+
 /**
  * @author shiyajian
  * create: 2019-01-12
  */
 public enum DemoEnum implements Enumable {
 
-    HELLO("hello", 1),
+    HELLO("enum.demo.hello", 1),
 
-    WORLD("world", 2);
+    WORLD("enum.demo.world", 2);
 
+    /**
+     * i18n 国际化文件中对应的key,在序列化返回给前台时候，通过i18n文件，转换成对应的描述
+     */
     private String key;
 
+    /**
+     * 数据库中保存的value值
+     */
     private int value;
 
     DemoEnum(String key, int value) {
@@ -29,12 +37,13 @@ public enum DemoEnum implements Enumable {
         return this.value;
     }
 
-    @Override
-    public String getGroup() {
-        return "demo";
-    }
-
-    public static DemoEnum valueOf(Integer value) {
+    /**
+     * 此处不能使用 valueOf命名，不然的话，可能根据ordinal获得值，引发数据错位
+     * @param value
+     * @return
+     */
+    @JsonCreator
+    public static DemoEnum get(Integer value) {
 
         if (value == null) {
             return null;

@@ -77,15 +77,20 @@ public class DemoControllerTest {
     @Test
     public void testEnumCover() throws Exception {
 
-        Map<String,String> map = Maps.newHashMap();
-        map.put("id","123");
-        map.put("name","hello");
-        map.put("demoEnum","1");
-        // System.out.println(map);
+        Map<String, String> map = Maps.newHashMap();
+        map.put("id", "123");
+        map.put("name", "hello");
+        map.put("demoEnum", "1");
+        EnumParam param = new EnumParam();
+        param.setId("123");
+        param.setName("hello");
+        param.setDemoEnum(DemoEnum.HELLO);
+        String paramStr = JsonUtil.toJson(map);
+        System.out.println(paramStr);
         MvcResult mvcResult = mockMvc.perform(
                 post("/demo/enum")
                         .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE)
-                        .content(JsonUtil.toJson(map))
+                        .content(paramStr)
         )
                 .andExpect(status().isOk())
                 .andReturn();
@@ -93,12 +98,12 @@ public class DemoControllerTest {
         System.out.println(response);
         EnumParam responseEnum = JsonUtil.toObject(JsonUtil.toJson(map), EnumParam.class);
         System.out.println(responseEnum);
-        // assertTrue(responseEnum.equals(param));
+        assertTrue(responseEnum.equals(param));
 
     }
 
     @Test
-    public void printEnum() throws Exception{
+    public void printEnum() throws Exception {
         MvcResult mvcResult = mockMvc.perform(
                 get("/demo/enum")
         )
@@ -109,7 +114,7 @@ public class DemoControllerTest {
     }
 
     @Test
-    public void getProfile() throws Exception{
+    public void getProfile() throws Exception {
         MvcResult mvcResult = mockMvc.perform(
                 get("/demo/profile")
         )

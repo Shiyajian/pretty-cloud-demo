@@ -19,7 +19,6 @@ spring:
       preferred-json-mapper: jackson
   profiles:
     active: @profile@
-
 ## 开启熔断
 feign:
   hystrix:
