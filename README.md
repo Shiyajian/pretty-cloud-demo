@@ -53,6 +53,7 @@ MySql
 - 异常处理
 - 拦截器（空格处理，xss,crf,sql注入拦截）
 关于Null和空字符串的思考
+- 关于Mybatis自定义枚举转换器，3.4.5+ （https://github.com/mybatis/mybatis-3/pull/971/commits/a2381869a56e11959bab43c5e0d23daa58757bcc）
 ## 开发工具
 
 - IDE :  **IntelliJ IDEA**

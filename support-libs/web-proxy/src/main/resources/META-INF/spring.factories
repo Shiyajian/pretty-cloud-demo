@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.shiyajian.cloud.web.jackson.JacksonAutoConfiguration,\
+  com.shiyajian.cloud.web.web.WebAutoConfiguration
+

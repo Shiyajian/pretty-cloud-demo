@@ -1,8 +1,7 @@
 package com.shiyajian.cloud.pay.pojo.param;
 
+import com.sun.istack.internal.NotNull;
 import lombok.Data;
-
-import javax.validation.constraints.NotNull;
 
 /**
  * @author shiyajian

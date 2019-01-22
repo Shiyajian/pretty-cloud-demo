@@ -1,12 +1,13 @@
 package com.shiyajian.cloud.demo.pojo.param;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.shiyajian.cloud.core.enums.Enumerable;
 
 /**
  * @author shiyajian
  * create: 2019-01-12
  */
-public enum DemoEnum implements Enumable {
+public enum DemoEnum implements Enumerable<DemoEnum> {
 
     HELLO("enum.demo.hello", 1),
 
@@ -43,11 +44,7 @@ public enum DemoEnum implements Enumable {
      * @return
      */
     @JsonCreator
-    public static DemoEnum get(Integer value) {
-
-        if (value == null) {
-            return null;
-        }
+    public static DemoEnum get(int value) {
         for (DemoEnum demoEnum : DemoEnum.values()) {
             if (demoEnum.getValue() == value) {
                 return demoEnum;

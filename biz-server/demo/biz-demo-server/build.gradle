@@ -1,0 +1,7 @@
+dependencies {
+    compile(
+            project(":web-proxy"),
+            "com.baomidou:mybatis-plus-boot-starter:$mybatisPlusVersion",
+            "mysql:mysql-connector-java")
+
+}

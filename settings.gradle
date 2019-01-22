@@ -42,4 +42,12 @@ include ":core-starter"
 project(":core-starter").projectDir = new File("support-libs/core-starter")
 include ':core-api'
 project(":core-api").projectDir = new File("support-libs/core-api")
+// 代理工具类
+include ':database-proxy'
+project(":database-proxy").projectDir = new File("support-libs/database-proxy")
+include ':web-proxy'
+project(":web-proxy").projectDir = new File("support-libs/web-proxy")
+include ':exception-proxy'
+project(":exception-proxy").projectDir = new File("support-libs/exception-proxy")
+
 

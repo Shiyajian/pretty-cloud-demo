@@ -18,6 +18,6 @@ public class SpringContext implements ApplicationContextAware {
     }
 
     public static Object getBean(Class clazz){
-        return null;
+        return applicationContext.getBean(clazz);
     }
 }

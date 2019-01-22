@@ -60,6 +60,11 @@ public class DemoController {
         return param;
     }
 
+    @GetMapping("/enum/param")
+    public EnumParam getEnumParam(EnumParam param) {
+        return param;
+    }
+
     @GetMapping("/profile")
     public String getProfile() {
         return env;

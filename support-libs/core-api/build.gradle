@@ -1,3 +1,8 @@
-// dependencies{
-//
-// }
+dependencies {
+    compile(
+            "commons-beanutils:commons-beanutils:$beanUtilsVersion",
+            "com.github.ben-manes.caffeine:guava",
+            "org.apache.commons:commons-lang3",
+            "joda-time:joda-time"
+    )
+}

@@ -1,10 +1,10 @@
-package com.shiyajian.cloud.demo.pojo.param;
+package com.shiyajian.cloud.core.enums;
 
 /**
  * @author shiyajian
  * create: 2019-01-12
  */
-public interface Enumable {
+public interface Enumerable<E extends Enum<E>> {
 
     String getKey();
 

@@ -1,6 +1,7 @@
 package com.shiyajian.cloud.demo.controller;
 
 import com.google.common.collect.Maps;
+import com.shiyajian.cloud.core.context.SpringContext;
 import com.shiyajian.cloud.core.utils.JsonUtil;
 import com.shiyajian.cloud.demo.pojo.param.DemoEnum;
 import com.shiyajian.cloud.demo.pojo.param.EnumParam;
@@ -11,6 +12,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
@@ -95,9 +97,7 @@ public class DemoControllerTest {
                 .andExpect(status().isOk())
                 .andReturn();
         String response = mvcResult.getResponse().getContentAsString();
-        System.out.println(response);
         EnumParam responseEnum = JsonUtil.toObject(JsonUtil.toJson(map), EnumParam.class);
-        System.out.println(responseEnum);
         assertTrue(responseEnum.equals(param));
 
     }
@@ -106,6 +106,15 @@ public class DemoControllerTest {
     public void printEnum() throws Exception {
         MvcResult mvcResult = mockMvc.perform(
                 get("/demo/enum")
+        )
+                .andExpect(status().isOk())
+                .andReturn();
+        String response = mvcResult.getResponse().getContentAsString();
+    }
+    @Test
+    public void getEnumParam() throws Exception {
+        MvcResult mvcResult = mockMvc.perform(
+                get("/demo/enum/param?demoEnum=1&id=1&name=1")
         )
                 .andExpect(status().isOk())
                 .andReturn();
