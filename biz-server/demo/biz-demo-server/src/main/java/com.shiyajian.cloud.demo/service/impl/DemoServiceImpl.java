@@ -1,6 +1,9 @@
 package com.shiyajian.cloud.demo.service.impl;
 
+import com.shiyajian.cloud.demo.dao.DemoDAO;
+import com.shiyajian.cloud.demo.pojo.dto.DemoDTO;
 import com.shiyajian.cloud.demo.service.DemoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -9,8 +12,12 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class DemoServiceImpl implements DemoService {
-    @Override
-    public void test() {
 
+    @Autowired
+    DemoDAO demoDAO;
+
+    @Override
+    public DemoDTO getDemo() {
+        return demoDAO.getDemo(1L);
     }
 }

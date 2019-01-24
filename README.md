@@ -44,7 +44,9 @@
 - 部署运维部署监控 (高可用，集群，分布式,实时监控报警，降级，自我修复)
 ## 技术预演
 所有的技术选型都是根据一定的理论进行选择，选择严格执行一个规范，现在所有的技术实现，统一在biz-server/demo下面实现
-- 技术选型原则和架构原则
+- [技术选型原则和架构原则](./doc/design/architectural-design-principles.md)
+- [前后数据流转中的处理](./doc/design/data-flow.md)
+- [使用专门的接口管理工具，而不是Swageer](./doc/design/api-system.md)
 MySql
 - Mysql各种数据类型分析，及业务字段选择
 - Mysql关于货币字段的存储类型选择

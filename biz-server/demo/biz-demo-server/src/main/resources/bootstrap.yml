@@ -34,3 +34,8 @@ feign:
 #syj:
 #  web:
 #    enable: true
+mybatis:
+  configuration:
+    default-enum-type-handler: com.shiyajian.cloud.demo.mybatis.EnumTypeHandler
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.shiyajian.cloud.demo.pojo

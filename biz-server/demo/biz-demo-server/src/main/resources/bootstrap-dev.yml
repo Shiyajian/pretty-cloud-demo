@@ -9,6 +9,6 @@ spring:
       idle-timeout: 30000
       max-lifetime: 180000
       connection-timeout: 30000
-    url: jdbc:mysql://127.0.0.1:3306/pay?useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://127.0.0.1:3306/demo?useUnicode=true&characterEncoding=UTF-8
     username: root
     password: 123456

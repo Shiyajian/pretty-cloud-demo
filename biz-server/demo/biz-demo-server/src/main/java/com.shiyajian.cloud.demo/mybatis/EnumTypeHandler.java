@@ -24,9 +24,7 @@ public class EnumTypeHandler<E extends Enum<E> & Enumerable> extends BaseTypeHan
      */
     private E[] enums;
 
-    public EnumTypeHandler() {
-
-    }
+    public EnumTypeHandler() { /* instance */ }
 
     /**
      * 设置配置文件设置的转换类以及枚举类内容，供其他方法更便捷高效的实现

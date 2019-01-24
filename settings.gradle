@@ -4,7 +4,7 @@ include ':gateway-server'
 project(":gateway-server").projectDir = new File("sys-server/gateway-server")
 
 // - demo
-include ':biz-demo-api',':biz-demo-client' ,':biz-demo-server'
+include ':biz-demo-api', ':biz-demo-client', ':biz-demo-server'
 project(":biz-demo-server").projectDir = new File("biz-server/demo/biz-demo-server")
 project(":biz-demo-client").projectDir = new File("biz-server/demo/biz-demo-client")
 project(":biz-demo-api").projectDir = new File("biz-server/demo/biz-demo-api")
@@ -32,7 +32,7 @@ include ":biz-notify-server"
 project(":biz-notify-server").projectDir = new File("biz-server/notify/biz-notify-server")
 
 // - 文件服务
-include ":biz-file-server" , ":biz-file-client",":biz-file-api"
+include ":biz-file-server", ":biz-file-client", ":biz-file-api"
 project(":biz-file-server").projectDir = new File("biz-server/file/biz-file-server")
 project(":biz-file-client").projectDir = new File("biz-server/file/biz-file-client")
 project(":biz-file-api").projectDir = new File("biz-server/file/biz-file-api")
@@ -43,11 +43,9 @@ project(":core-starter").projectDir = new File("support-libs/core-starter")
 include ':core-api'
 project(":core-api").projectDir = new File("support-libs/core-api")
 // 代理工具类
-include ':database-proxy'
-project(":database-proxy").projectDir = new File("support-libs/database-proxy")
-include ':web-proxy'
-project(":web-proxy").projectDir = new File("support-libs/web-proxy")
-include ':exception-proxy'
-project(":exception-proxy").projectDir = new File("support-libs/exception-proxy")
+include ':database-plugin', ':data-conver-plugin', ':exception-plugin'
+project(":database-plugin").projectDir = new File("support-libs/database-plugin")
+project(":data-conver-plugin").projectDir = new File("support-libs/data-conver-plugin")
+project(":exception-plugin").projectDir = new File("support-libs/exception-plugin")
 
 

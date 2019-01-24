@@ -5,7 +5,7 @@ dependencies {
     compile(
             "com.alipay.sdk:alipay-sdk-java:$alipayVersion",
             "com.github.binarywang:weixin-java-pay:$wechatpayVersion",
-            "com.baomidou:mybatis-plus-boot-starter:$mybatisPlusVersion",
+            // "com.baomidou:mybatis-plus-boot-starter:$mybatisPlusVersion",
             "mysql:mysql-connector-java",
             project(':biz-pay-api'),
             project(':biz-order-client'),
