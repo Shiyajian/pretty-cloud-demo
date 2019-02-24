@@ -1,2 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.shiyajian.cloud.pay.autoconfiguration.PayFeignConfiguration

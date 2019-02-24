@@ -1,0 +1,4 @@
+dependencies {
+    // implementation 保证此依赖只会在本工程使用，compile 会将依赖传递到上层
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+}

@@ -1,8 +1,0 @@
-version '1.0.0-SNAPSHOT'
-description '订单服务'
-
-dependencies {
-    compile project(':biz-order-api')
-    compile project(':biz-file-client')
-    compile project(':biz-pay-client')
-}

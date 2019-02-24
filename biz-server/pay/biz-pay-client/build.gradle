@@ -1,7 +1,0 @@
-version '1.0.0-SNAPSHOT'
-description '支付服务客户端'
-
-
-dependencies {
-    compile(project(':biz-pay-api'))
-}

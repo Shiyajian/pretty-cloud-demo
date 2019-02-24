@@ -1,7 +1,0 @@
-version '1.0.0-SNAPSHOT'
-description '支付服务通用接口工程'
-
-dependencies {
-//    compile()
-}
-

@@ -1,9 +1,0 @@
-description '数据库代理工具类，以springboot-starter方式提供'
-dependencies {
-    compile(
-            "mysql:mysql-connector-java",
-            "org.mybatis.spring.boot:mybatis-spring-boot-starter:$mybatisSpringVersion",
-            "tk.mybatis:mapper-spring-boot-starter:$tkMapperVersion"
-
-    )
-}

@@ -1,0 +1,8 @@
+description '文件服务'
+
+dependencies {
+    compile project(':services:file:file-api')
+    apply from: rootDir.absolutePath + "/gradle/server.gradle"
+
+
+}

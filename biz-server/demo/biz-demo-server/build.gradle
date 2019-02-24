@@ -1,6 +1,0 @@
-dependencies {
-    compile(
-            project(":data-conver-plugin"),
-            project(":database-plugin")
-    )
-}

@@ -1,0 +1,28 @@
+server:
+  port: 9999
+spring:
+  application:
+    name: gateway-server
+  cloud:
+    gateway:
+      routes:
+      - id: 163                     #网关路由到网易官网
+        uri: http://www.163.com/
+        predicates:
+        - Path=/163/**
+        filters:
+        - JwtCheck
+      - id: biz-order-server
+        uri: lb:biz-order-server
+        predicates:
+        - Path=/biz-order-server/**  #此处url前缀和uri需要一致不然报错
+        - Weight=provide, 90
+      discovery:
+        locator:
+          enabled: true
+    nacos:
+      config:
+        server-addr: localhost:8848
+      discovery:
+        server-addr: localhost:8848
+

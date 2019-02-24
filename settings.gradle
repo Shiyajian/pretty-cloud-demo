@@ -1,51 +1,37 @@
-rootProject.name = "cobweb"
-// - 系统服务
-include ':gateway-server'
-project(":gateway-server").projectDir = new File("sys-server/gateway-server")
+rootProject.name = "pretty-cloud-demo"
 
-// - demo
-include ':biz-demo-api', ':biz-demo-client', ':biz-demo-server'
-project(":biz-demo-server").projectDir = new File("biz-server/demo/biz-demo-server")
-project(":biz-demo-client").projectDir = new File("biz-server/demo/biz-demo-client")
-project(":biz-demo-api").projectDir = new File("biz-server/demo/biz-demo-api")
+// 共用
+include ':commons:common-core', ':commons:common-enum', ':commons:common-exception',
+        ':commons:common-database', ':commons:common-redis', ':commons:common-es',
+        ':commons:common-mq'
 
-// - 用户中心
-// include ':biz-user-api',':biz-user-client' ,':biz-user-server'
-// project(":biz-user-server").projectDir = new File("biz-server/user/biz-user-server")
-// project(":biz-user-client").projectDir = new File("biz-server/user/biz-user-client")
-// project(":biz-user-api").projectDir = new File("biz-server/user/biz-user-api")
+// 文件微服务
+include ':services:file:file-api', ':services:file:file-client', ':services:file:file-server'
 
-// - 订单中心
-include ":biz-order-server", ":biz-order-client", ":biz-order-api"
-project(":biz-order-server").projectDir = new File("biz-server/order/biz-order-server")
-project(":biz-order-client").projectDir = new File("biz-server/order/biz-order-client")
-project(":biz-order-api").projectDir = new File("biz-server/order/biz-order-api")
+// 算法分析服务
+include ':services:analysis:analysis-api', ':services:analysis:analysis-client', ':services:analysis:analysis-server'
 
-// - 支付结算
-include ":biz-pay-server", ":biz-pay-client", ":biz-pay-api"
-project(":biz-pay-server").projectDir = new File("biz-server/pay/biz-pay-server")
-project(":biz-pay-client").projectDir = new File("biz-server/pay/biz-pay-client")
-project(":biz-pay-api").projectDir = new File("biz-server/pay/biz-pay-api")
+// 消息通知服务
+include ':services:notify:notify-api', ':services:notify:notify-client', ':services:notify:notify-server'
 
-// - 通知服务
-include ":biz-notify-server"
-project(":biz-notify-server").projectDir = new File("biz-server/notify/biz-notify-server")
+// 商户服务
+include ':services:merchant:merchant-api', ':services:merchant:merchant-client', ':services:merchant:merchant-server'
 
-// - 文件服务
-include ":biz-file-server", ":biz-file-client", ":biz-file-api"
-project(":biz-file-server").projectDir = new File("biz-server/file/biz-file-server")
-project(":biz-file-client").projectDir = new File("biz-server/file/biz-file-client")
-project(":biz-file-api").projectDir = new File("biz-server/file/biz-file-api")
+// 订单服务
+include ':services:order:order-api', ':services:order:order-client', ':services:order:order-server'
 
-// 自研工具类/依赖，最后打成jar
-include ":core-starter"
-project(":core-starter").projectDir = new File("support-libs/core-starter")
-include ':core-api'
-project(":core-api").projectDir = new File("support-libs/core-api")
-// 代理工具类
-include ':database-plugin', ':data-conver-plugin', ':exception-plugin'
-project(":database-plugin").projectDir = new File("support-libs/database-plugin")
-project(":data-conver-plugin").projectDir = new File("support-libs/data-conver-plugin")
-project(":exception-plugin").projectDir = new File("support-libs/exception-plugin")
+// 产品服务
+include ':services:product:product-api', ':services:product:product-client', ':services:product:product-server'
 
+// 金融服务
+include ':services:finance:finance-api', ':services:finance:finance-client', ':services:finance:finance-server'
 
+// 用户服务
+include ':services:user:user-api', ':services:user:user-client', ':services:user:user-server'
+
+// 券服务
+include ':services:coupon:coupon-api', ':services:coupon:coupon-client', ':services:coupon:coupon-server'
+
+// 系统服务
+include ':services:system:auth' //鉴权服务
+include ':services:system:gateway' //网关服务

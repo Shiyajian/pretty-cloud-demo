@@ -1,6 +1,0 @@
-dependencies {
-    compile(
-            project(":core-api"),
-            "org.springframework.cloud:spring-cloud-starter-openfeign"
-    )
-}
