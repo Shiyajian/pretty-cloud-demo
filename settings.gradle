@@ -29,8 +29,8 @@ include ':services:finance:finance-api', ':services:finance:finance-client', ':s
 // 用户服务
 include ':services:user:user-api', ':services:user:user-client', ':services:user:user-server'
 
-// 券服务
-include ':services:coupon:coupon-api', ':services:coupon:coupon-client', ':services:coupon:coupon-server'
+// 促销服务（优惠券，拉新，推荐，广告）
+include ':services:promote:promote-api', ':services:promote:promote-client', ':services:promote:promote-server'
 
 // 系统服务
 include ':services:system:auth' //鉴权服务
