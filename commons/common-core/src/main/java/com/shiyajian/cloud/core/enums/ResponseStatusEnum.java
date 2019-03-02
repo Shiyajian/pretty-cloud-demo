@@ -5,7 +5,7 @@ package com.shiyajian.cloud.core.enums;
  * @author shiyajian
  * create: 2018-10-24
  */
-public enum ServiceStateEnum {
+public enum ResponseStatusEnum implements Enumerable {
 
     /** 请求成功 */
     SUCCESS(20000, "success"),
@@ -29,30 +29,28 @@ public enum ServiceStateEnum {
     FALLBACK(20500, "success");
 
 
-    private int code;
+    /**
+     * 枚举类使用到的值
+     */
+    private int value;
 
-    private String msg;
+    /**
+     * 枚举类对应的文本信息，在国际化文件中对应的 key 值
+     */
+    private String key;
 
-
-    public int getCode() {
-        return code;
+    ResponseStatusEnum(int value, String key) {
+        this.value = value;
+        this.key = key;
     }
 
-    public void setCode(int code) {
-        this.code = code;
+    @Override
+    public String getKey() {
+        return this.key;
     }
 
-    public String getMsg() {
-        return msg;
+    @Override
+    public int getValue() {
+        return this.value;
     }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    ServiceStateEnum(int code, String msg) {
-        this.code = code;
-        this.msg = msg;
-    }
-
 }

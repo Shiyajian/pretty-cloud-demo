@@ -25,7 +25,7 @@ public class FileClientImpl implements FileClient {
         FileVO vo = new FileVO();
         vo.setFileName("test");
         vo.setFileUrl("http://www.baidu.com");
-        return ResponseUtil.success(vo);
+        return ResponseUtil.ok(vo,"文件上传成功");
     }
 
     @Override

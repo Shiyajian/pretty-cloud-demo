@@ -1,4 +1,4 @@
-package com.shiyajian.cloud.core.context;
+package com.shiyajian.cloud.core.holder;
 
 import com.shiyajian.cloud.core.constants.JwtConstants;
 import com.shiyajian.cloud.core.entity.User;
@@ -7,15 +7,15 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.Enumeration;
 
-import static com.shiyajian.cloud.core.context.ServletContext.request;
+import static com.shiyajian.cloud.core.holder.ServletContextHolder.currentRequest;
 
 /**
  * @author shiyajian
  * create: 2018-12-25
  */
-public class UserContext {
+public class UserContextHolder {
 
-    private UserContext() { /* no instance */ }
+    private UserContextHolder() { /* no instance */ }
 
     /**
      * 获得当前登录的用户，如果没有登录信息，则抛出异常，由调用方自己处理
@@ -23,7 +23,7 @@ public class UserContext {
      */
     public static User currentUser() {
 
-        Enumeration<String> headers = request().getHeaders(JwtConstants.JWT_HEADER_NAME);
+        Enumeration<String> headers = currentRequest().getHeaders(JwtConstants.JWT_HEADER_NAME);
         while (headers.hasMoreElements()) {
             String element = headers.nextElement();
             if (StringUtils.isBlank(element)) {

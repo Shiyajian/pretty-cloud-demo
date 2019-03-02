@@ -1,4 +1,4 @@
-package com.shiyajian.cloud.core.context;
+package com.shiyajian.cloud.core.holder;
 
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -12,15 +12,15 @@ import javax.servlet.http.HttpSession;
  * @author shiyajian
  * create: 2018-12-25
  */
-public class ServletContext {
+public class ServletContextHolder {
 
-    private ServletContext() { /* no instance */ }
+    private ServletContextHolder() { /* no instance */ }
 
     /**
      * 通过静态方法获得当前的request对象
      * @return 当前线程对应的request对象
      */
-    public static HttpServletRequest request() {
+    public static HttpServletRequest currentRequest() {
         return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
     }
 
@@ -28,7 +28,7 @@ public class ServletContext {
      * 通过静态方法获得当前的response对象
      * @return 当前线程对应的response对象
      */
-    public static HttpServletResponse response() {
+    public static HttpServletResponse currentResponse() {
         return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getResponse();
     }
 
@@ -36,7 +36,7 @@ public class ServletContext {
      * 通过静态方法获得当前的session对象
      * @return 当前线程对应的session对象
      */
-    public static HttpSession session() {
-        return request().getSession();
+    public static HttpSession currentSession() {
+        return currentRequest().getSession();
     }
 }

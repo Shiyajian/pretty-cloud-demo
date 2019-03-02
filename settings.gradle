@@ -1,15 +1,17 @@
 rootProject.name = "pretty-cloud-demo"
 
 // 共用
-include ':commons:common-core', ':commons:common-enum', ':commons:common-exception',
-        ':commons:common-database', ':commons:common-redis', ':commons:common-es',
-        ':commons:common-mq'
+include ':commons:common-core', ':commons:common-database',
+        ':commons:common-redis', ':commons:common-es', ':commons:common-mq'
 
 // 文件微服务
 include ':services:file:file-api', ':services:file:file-client', ':services:file:file-server'
 
 // 算法分析服务
 include ':services:analysis:analysis-api', ':services:analysis:analysis-client', ':services:analysis:analysis-server'
+
+// 荣誉系统
+include ':services:honor:honor-api', ':services:honor:honor-client', ':services:honor:honor-server'
 
 // 消息通知服务
 include ':services:notify:notify-api', ':services:notify:notify-client', ':services:notify:notify-server'

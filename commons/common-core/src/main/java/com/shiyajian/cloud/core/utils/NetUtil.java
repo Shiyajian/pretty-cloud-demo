@@ -1,6 +1,6 @@
 package com.shiyajian.cloud.core.utils;
 
-import com.shiyajian.cloud.core.context.ServletContext;
+import com.shiyajian.cloud.core.holder.ServletContextHolder;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -18,7 +18,7 @@ public final class NetUtil {
      * @return
      */
     public static String getIpAddress() {
-        HttpServletRequest request = ServletContext.request();
+        HttpServletRequest request = ServletContextHolder.currentRequest();
         String ip = request.getHeader("X-Forwarded-For");
 
         if (ip == null || ip.length() == 0 || UNKNOWN.equalsIgnoreCase(ip)) {

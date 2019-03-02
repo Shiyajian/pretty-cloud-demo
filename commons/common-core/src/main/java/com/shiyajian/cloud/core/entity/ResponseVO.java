@@ -1,8 +1,8 @@
 package com.shiyajian.cloud.core.entity;
 
+import com.shiyajian.cloud.core.enums.ResponseStatusEnum;
+import com.shiyajian.cloud.core.utils.I18nMessageUtil;
 import lombok.Data;
-
-import javax.annotation.Nullable;
 
 /**
  * 统一返回实体
@@ -18,19 +18,9 @@ public class ResponseVO<T> {
     private Integer code;
 
     /**
-     * 统一返回状态码对应的描述
-     */
-    private String error;
-
-    /**
      * 详细的错误提示
      */
     private String msg;
-
-    /**
-     * 是否成功
-     */
-    private Boolean succeeded;
 
     /**
      * 如果是分页数据，表示总数据条数；
@@ -44,18 +34,29 @@ public class ResponseVO<T> {
     private T data;
 
     public ResponseVO() {
+        this(null);
     }
 
-    public ResponseVO(Integer code, String msg, Boolean succeeded, Long total, T data) {
+    public ResponseVO(T data) {
+        this(null, data);
+    }
+
+    public ResponseVO(T data, String message) {
+        this(null, data, message);
+    }
+
+    public ResponseVO(Long total, T data) {
+        this(total, data, I18nMessageUtil.getMessage(ResponseStatusEnum.SUCCESS.getKey(), null));
+    }
+
+    public ResponseVO(Long total, T data, String message) {
+        this(ResponseStatusEnum.SUCCESS.getValue(), message, total, data);
+    }
+
+    public ResponseVO(Integer code, String msg, Long total, T data) {
         this.code = code;
         this.msg = msg;
-        this.succeeded = succeeded;
         this.total = total;
         this.data = data;
-    }
-
-    @Nullable
-    public T get() {
-        return this.data;
     }
 }
