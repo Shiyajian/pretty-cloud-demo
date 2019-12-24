@@ -58,6 +58,6 @@ subprojects {
     processResources {
         filter org.apache.tools.ant.filters.ReplaceTokens, tokens: [profile: profile]
     }
+   
 
 }
-
